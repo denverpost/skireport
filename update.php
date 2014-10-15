@@ -1,0 +1,196 @@
+<?
+// +----------------------------------------------------------------------+
+// | skireport / Update                                                   |
+// +----------------------------------------------------------------------+
+// | Author: Joe Murphy <jmurphy@denverpost.com>                          |
+// +----------------------------------------------------------------------+
+
+include('output_constants.php');
+
+
+$last_update = array();
+$update_sql = array();
+
+$xml = simplexml_load_file($dirpath . "ski-new.xml");
+function attr_gather($input)
+{
+	foreach ( $input->attributes() as $key => $value ) $return .= trim($key) . ':' . trim($value) . '|'	;
+	if ( $return != '' ) return '(' . $return . ')';
+	else return '';
+}
+function attr_get($xml, $name)
+{
+	foreach ( $xml->attributes() as $key => $value ) if ( $key == $name ) return $value;
+}
+
+
+if ( $argv['update'] == TRUE )
+{
+	$ids = explode("\n", file_get_contents($dirpath . 'ids.txt'));
+	if ( count($ids) == 1 || ( count($ids) == 2 && $ids[0] == "11" ) ) die('Nothing to update');
+}
+elseif ( $argv['colorado'] == TRUE || $argv['backup'] == TRUE )
+{
+	$ids = explode("\n", file_get_contents($dirpath . 'ids.colorado.txt'));
+}
+
+
+
+$sql_skiarea = "
+	INSERT INTO skiarea
+		( skiarea_id, country_id, region_id, state_id, name, shortname, url, email, callaheadphone, projectedopeningdate, projectedclosingdate, lastupdate)
+		VALUES ";
+
+$sql_skiarea_update = "
+	";
+
+$sql_skiarea_links = "
+	INSERT INTO skiarea_links
+		( skiarea_id, label, url )
+		VALUES ";
+
+$sql_report = "
+	INSERT INTO report
+		( skiarea_id, report_ski, report_snowboard, report_crosscountry, newsnow_24_in, newsnow_24_cm, newsnow_48_in, newsnow_48_cm, newsnow_72_in, newsnow_72_cm, basedepth_in, basedepth_cm, topdepth_in, topdepth_cm, conditions, numliftsopen, numliftstotal, perliftsopen, numberofruns, acresopen, kmxc, eventnotices, cc_facilities, cc_numberoftrails, cc_kmopen, cc_kmtrackset, cc_kmskategroomed, sb_parkresshaped, sb_piperecut, sb_hits, sb_pipes, basetemperature_f, basetemperature_c, baseweather, lastupdate, open )
+		VALUES ";
+
+foreach ( $xml->children() as $key1 => $value1 )
+{
+	$value1_attr = attr_gather($value1);
+	$$key1 = $value1->attributes();
+
+	foreach ( $value1 as $key2 => $value2 )
+	{
+		$value2_attr = attr_gather($value2);
+		$$key2 = $value2->attributes();
+
+
+		foreach ( $value2 as $key3 => $value3 )
+		{
+			$value3_attr = attr_gather($value3);
+			$$key3 = $value3->attributes();
+
+			foreach ( $value3 as $key4 => $value4 )
+			{
+				$value4_attr = attr_gather($value4);
+				$$key4 = $value4->attributes();
+
+				foreach ( $value4 as $key5 => $value5 )
+				{
+					//Turning "yes" into 1 and "no" into 0
+					if ( $value5 == 'yes' ) $value5 = 1;
+					elseif ( $value5 == 'no' ) $value5 = 0;
+
+					$value5_attr = attr_gather($value5);
+					//Set variables that could maintain value from the previous loop to NULL
+					$KmXC = 'NULL'; $Facilities = 'NULL'; $NumberOfTrails = 'NULL'; $KmOpen = 'NULL'; $KmTrackset = 'NULL'; $KmSkateGroomed = 'NULL'; $ParkResshaped = 'NULL'; $PipeRecut = 'NULL'; $Hits = 'NULL'; $Pipes = 'NULL'; $BaseTemperature_f = 'NULL'; $BaseTemperature_c = 'NULL';
+
+					if ( $key5 == 'Email' ) { $value5_tmp = explode(' ', $value5); $value5 = ( count($value5_tmp) > 0 ) ? $value5_tmp[0] : $value5; }
+					if ( $key5 == 'MNCLink' )
+					{
+						$sql_skiarea_links .= "
+	( $SkiArea, '" . attr_get($value5, 'label') . "', '$value5' ),";
+					}
+					if ( $key5 == 'ReportIndicators' || $key5 == 'CrossCountryReport' || $key5 == 'SnowboardReport' )
+					{
+						foreach ( $value5 as $key6 => $value6 )
+						{
+							if ( $value6 == 'N/A' ) $value6 = 'NULL';
+							//Turning "yes" into 1 anif ( $argv['update'] == TRUE ) echo $sql_update;d "no" into 0
+							if ( $value6 == 'yes' ) $value6 = 1;
+							elseif ( $value6 == 'no' ) $value6 = 0;
+							$$key6 = $value6;
+						}
+					}
+					if ( $key5 == 'NewSnow24' || $key5 == 'NewSnow48' || $key5 == 'NewSnow72' || $key5 == 'BaseDepth' || $key5 == 'TopDepth' || $key5 == 'BaseTemperature' )
+					{
+						$unit = strtolower(attr_get($value5, 'unit'));
+						eval("$$key5" . '_' . "$unit" . ' = ' . "'$value5';");
+					}
+					if ( $value5 == 'N/A' ) $value5 = 'NULL';
+
+
+					$$key5 = trim($value5);
+
+
+				}
+
+
+				if ( $$SkiArea != TRUE && $SkiArea != '' )
+				{
+					//$sql_skiarea_update .=
+					//echo array_search("$SkiArea", $ids);
+					$$SkiArea = TRUE;
+
+					//Add logic to only output the Colorado resorts
+					if ( $State == 8 )  $sql_skiarea_update .= "UPDATE skiarea SET projectedopeningdate = STR_TO_DATE('$ProjectedOpeningDate', '%m/%d/%y'), projectedclosingdate = STR_TO_DATE('$ProjectedClosingDate', '%m/%d/%y') WHERE skiarea_id = $SkiArea LIMIT 1;
+";
+					if ( $State == 8 )  $sql_skiarea .= "
+		( $SkiArea, $Country, $Region, $State, '" . addslashes($Name) . "', '" . addslashes($ShortName) . "', '$URL', '$Email', '$CallAheadPhone', STR_TO_DATE('$ProjectedOpeningDate', '%m/%d/%y'), STR_TO_DATE('$ProjectedClosingDate', '%m/%d/%y'), STR_TO_DATE('$LastUpdate', '%m/%d/%y') ),";
+
+
+					if ( ( $argv['update'] == TRUE && array_search("$SkiArea", $ids) !== FALSE ) || $argv['report'] == TRUE )
+					{
+						$sql_report .= "
+		( $SkiArea, $Ski, $Snowboard, $CrossCountry, $NewSnow24_in, $NewSnow24_cm, $NewSnow48_in, $NewSnow48_cm, $NewSnow72_in, $NewSnow72_cm, $BaseDepth_in, $BaseDepth_cm, $TopDepth_in, $TopDepth_cm, '$Conditions', $NumLiftsOpen, $NumLiftsTotal, $PerLiftsOpen, $NumberOfRuns, $AcresOpen, $KmXC, '$EventNotices', '$Facilities', $NumberOfTrails, $KmOpen, $KmTrackset, $KmSkateGroomed, $ParkResshaped, $PipeRecut, $Hits, $Pipes, $BaseTemperature_f, $BaseTemperature_c, '$BaseWeather', STR_TO_DATE('$LastUpdate', '%m/%d/%y'), '$Open' ),";
+					}
+
+					// Also, we save the LastUpdate value in an array assigned
+					// to that SkiArea for reference
+					if ( $State == 8 )
+					{
+						$last_update[intval($SkiArea)] = $LastUpdate;
+						$update_sql[intval($SkiArea)] = "
+		( $SkiArea, $Ski, $Snowboard, $CrossCountry, $NewSnow24_in, $NewSnow24_cm, $NewSnow48_in, $NewSnow48_cm, $NewSnow72_in, $NewSnow72_cm, $BaseDepth_in, $BaseDepth_cm, $TopDepth_in, $TopDepth_cm, '$Conditions', $NumLiftsOpen, $NumLiftsTotal, $PerLiftsOpen, $NumberOfRuns, $AcresOpen, $KmXC, '$EventNotices', '$Facilities', $NumberOfTrails, $KmOpen, $KmTrackset, $KmSkateGroomed, $ParkResshaped, $PipeRecut, $Hits, $Pipes, $BaseTemperature_f, $BaseTemperature_c, '$BaseWeather', STR_TO_DATE('$LastUpdate', '%m/%d/%y'), '$Open' ),";
+					}
+				}
+			}
+		}
+	}
+}
+//Return the query, with the final comma chopped off and replaced with a semi-colon.
+if ( $argv['links'] == TRUE ) echo substr($sql_skiarea_links, 0, -1) . ";\n";
+if ( $argv['ski'] == TRUE ) echo substr($sql_skiarea, 0, -1) . ";\n";
+if ( $argv['skiarea_update'] == TRUE ) echo $sql_skiarea_update;
+if ( $argv['report'] == TRUE || $argv['update'] == TRUE ) echo substr($sql_report, 0, -1) . ";\n";
+
+
+
+
+
+
+
+
+
+if ( $argv['backup'] == TRUE )
+{
+	$sql_backup = "
+		INSERT INTO report
+			( skiarea_id, report_ski, report_snowboard, report_crosscountry, newsnow_24_in, newsnow_24_cm, newsnow_48_in, newsnow_48_cm, newsnow_72_in, newsnow_72_cm, basedepth_in, basedepth_cm, topdepth_in, topdepth_cm, conditions, numliftsopen, numliftstotal, perliftsopen, numberofruns, acresopen, kmxc, eventnotices, cc_facilities, cc_numberoftrails, cc_kmopen, cc_kmtrackset, cc_kmskategroomed, sb_parkresshaped, sb_piperecut, sb_hits, sb_pipes, basetemperature_f, basetemperature_c, baseweather, lastupdate, open )
+			VALUES ";
+
+	// This is the update.php backup -- in case a resort has updated their information, but we missed it in the xml diff
+	foreach ( $input['ids']['skiarea'] as $SkiArea )
+	{
+		// We're looking here for Colorado resorts that have an older lastupdate date than the XML file.
+		//echo $SkiArea . ' ' . $last_update[intval($SkiArea)] . ' ';
+		$sql = '
+		SELECT COUNT(*) FROM report
+		WHERE
+			skiarea_id = ' . $SkiArea . '
+			AND lastupdate = STR_TO_DATE(\'' . $last_update[intval($SkiArea)] . '\', \'%m/%d/%y\');
+		';
+		$result = $db->query($sql);
+		$count = $db->fetch($result);
+		//echo $count[0] . "\n";
+
+		// If the count is 0, then we write whatever was in that record to the database.
+		if ( $count[0] == 0 )
+		{
+			$sql_backup .= $update_sql[intval($SkiArea)];
+		}
+	}
+
+	echo substr($sql_backup, 0, -1) . ";\n";
+}
+?>

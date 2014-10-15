@@ -1,0 +1,5 @@
+cache/*
+*.xml
+aaa
+*.json
+sql*

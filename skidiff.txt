@@ -1,0 +1,219 @@
+--- /var/www/apache/denverpostplus.com/httpdocs/app/skireport/ski-new.xml	2014-10-15 09:02:58.000000000 -0600
++++ /var/www/apache/denverpostplus.com/httpdocs/app/skireport/ski-old.xml	2014-10-15 08:02:58.000000000 -0600
+@@ -48286,71 +48286,71 @@
+                     <MNCLink type="url_info_trailmap_export" label="Trail Map">http://www.onthesnow.com/southern-alps/greolieres-audibergue/trailmap.html?XE_AFF=denver%20post&amp;XE_LNK=</MNCLink>
+                     <MNCLink type="url_info_weather" label="Weather Report">http://www.onthesnow.com/southern-alps/greolieres-audibergue/weather.html?XE_AFF=denver%20post&amp;XE_LNK=Weather</MNCLink>
+                     <MNCLink type="url_travel" label="Skiing Deals">http://www.onthesnow.com/southern-alps/greolieres-audibergue/travel.html?XE_AFF=denver%20post&amp;XE_LNK=Travel</MNCLink>
+                     <MNCLink type="url_reviews" label="Reviews">http://www.onthesnow.com/southern-alps/greolieres-audibergue/reviews.html?XE_AFF=denver%20post&amp;XE_LNK=</MNCLink>
+                     <MNCLink type="url_cams" label="Web Cam &amp; Photos">http://www.onthesnow.com/southern-alps/greolieres-audibergue/webcams.html?XE_AFF=denver%20post&amp;XE_LNK=Cams</MNCLink>
+                     <MNCLink type="url_lift_tickets" label="Lift Tickets">http://www.onthesnow.com/southern-alps/greolieres-audibergue/lift-tickets.html?XE_AFF=denver%20post&amp;XE_LNK=LiftTix</MNCLink>
+                     <MNCLink type="url_info" label="Resort Overview">http://www.onthesnow.com/southern-alps/greolieres-audibergue/ski-resort.html?XE_AFF=denver%20post&amp;XE_LNK=Resort_Info</MNCLink>
+                 </SkiArea>
+                 <SkiArea id="2021">
+                     <Name>Val d'Allos - La Foux</Name>
+                     <ShortName>Val d'Allos - La Foux</ShortName>
+                     <Open>Call Ahead</Open>
+                     <ReportIndicators>
+                         <Ski>yes</Ski>
+                         <Snowboard>yes</Snowboard>
+                         <CrossCountry>no</CrossCountry>
+                     </ReportIndicators>
+                     <NewSnow24 unit="IN">0</NewSnow24>
+                     <NewSnow24 unit="CM">0</NewSnow24>
+                     <NewSnow48 unit="IN">0</NewSnow48>
+                     <NewSnow48 unit="CM">0</NewSnow48>
+                     <NewSnow72 unit="IN">0</NewSnow72>
+                     <NewSnow72 unit="CM">0</NewSnow72>
+                     <BaseDepth unit="IN">0</BaseDepth>
+                     <BaseDepth unit="CM">0</BaseDepth>
+                     <TopDepth unit="IN">0</TopDepth>
+                     <TopDepth unit="CM">0</TopDepth>
+                     <Conditions>Variable</Conditions>
+                     <NumLiftsOpen>N/A</NumLiftsOpen>
+                     <NumLiftsTotal>18</NumLiftsTotal>
+                     <PerLiftsOpen>0</PerLiftsOpen>
+                     <NumberOfRuns>N/A</NumberOfRuns>
+                     <AcresOpen>0</AcresOpen>
+                     <KmXC>N/A</KmXC>
+-                    <EventNotices>/southern-alps/val-dallos-la-foux/events.html</EventNotices>
+-                    <URL>http://www.onthesnow.com/c/l?a=2021&amp;u=http://www.valdallos.com</URL>
+-                    <Email>info@valdallos.com</Email>
++                    <EventNotices></EventNotices>
++                    <URL></URL>
++                    <Email></Email>
+                     <CallAheadPhone>+33 (0)4 92 83 02 81</CallAheadPhone>
+                     <ProjectedOpeningDate>12/13/14</ProjectedOpeningDate>
+                     <ProjectedClosingDate>4/6/15</ProjectedClosingDate>
+                     <LastUpdate>8/5/14</LastUpdate>
+                     <SnowboardReport>
+                         <ParkReshaped>N/A</ParkReshaped>
+                         <PipeRecut>N/A</PipeRecut>
+                         <Hits>0</Hits>
+                         <Pipes></Pipes>
+                     </SnowboardReport>
+                     <MNCLink type="url_info_trailmap_export" label="Trail Map">http://www.onthesnow.com/southern-alps/val-dallos-la-foux/trailmap.html?XE_AFF=denver%20post&amp;XE_LNK=</MNCLink>
+                     <MNCLink type="url_info_weather" label="Weather Report">http://www.onthesnow.com/southern-alps/val-dallos-la-foux/weather.html?XE_AFF=denver%20post&amp;XE_LNK=Weather</MNCLink>
+                     <MNCLink type="url_travel" label="Skiing Deals">http://www.onthesnow.com/southern-alps/val-dallos-la-foux/travel.html?XE_AFF=denver%20post&amp;XE_LNK=Travel</MNCLink>
+                     <MNCLink type="url_reviews" label="Reviews">http://www.onthesnow.com/southern-alps/val-dallos-la-foux/reviews.html?XE_AFF=denver%20post&amp;XE_LNK=</MNCLink>
+                     <MNCLink type="url_cams" label="Web Cam &amp; Photos">http://www.onthesnow.com/southern-alps/val-dallos-la-foux/webcams.html?XE_AFF=denver%20post&amp;XE_LNK=Cams</MNCLink>
+                     <MNCLink type="url_lift_tickets" label="Lift Tickets">http://www.onthesnow.com/southern-alps/val-dallos-la-foux/lift-tickets.html?XE_AFF=denver%20post&amp;XE_LNK=LiftTix</MNCLink>
+                     <MNCLink type="url_info" label="Resort Overview">http://www.onthesnow.com/southern-alps/val-dallos-la-foux/ski-resort.html?XE_AFF=denver%20post&amp;XE_LNK=Resort_Info</MNCLink>
+                 </SkiArea>
+                 <SkiArea id="2027">
+                     <Name>Mijanès - Donezan </Name>
+                     <ShortName>Mijanès - Donezan </ShortName>
+                     <Open>Call Ahead</Open>
+                     <ReportIndicators>
+                         <Ski>yes</Ski>
+                         <Snowboard>yes</Snowboard>
+                         <CrossCountry>yes</CrossCountry>
+                     </ReportIndicators>
+                     <NewSnow24 unit="IN">0</NewSnow24>
+                     <NewSnow24 unit="CM">0</NewSnow24>
+                     <NewSnow48 unit="IN">0</NewSnow48>
+                     <NewSnow48 unit="CM">0</NewSnow48>
+                     <NewSnow72 unit="IN">0</NewSnow72>
+                     <NewSnow72 unit="CM">0</NewSnow72>
+                     <BaseDepth unit="IN">0</BaseDepth>
+@@ -85988,69 +85988,69 @@
+                         <NumberOfTrails></NumberOfTrails>
+                         <KmOpen>N/A</KmOpen>
+                         <KmTrackset>N/A</KmTrackset>
+                         <KmSkateGroomed>N/A</KmSkateGroomed>
+                     </CrossCountryReport>
+                     <MNCLink type="url_info_trailmap_export" label="Trail Map">http://www.onthesnow.com/low-tatras-north/jasna-nizke-tatry-chopok-sever/trailmap.html?XE_AFF=denver%20post&amp;XE_LNK=</MNCLink>
+                     <MNCLink type="url_info_weather" label="Weather Report">http://www.onthesnow.com/low-tatras-north/jasna-nizke-tatry-chopok-sever/weather.html?XE_AFF=denver%20post&amp;XE_LNK=Weather</MNCLink>
+                     <MNCLink type="url_travel" label="Skiing Deals">http://www.onthesnow.com/low-tatras-north/jasna-nizke-tatry-chopok-sever/travel.html?XE_AFF=denver%20post&amp;XE_LNK=Travel</MNCLink>
+                     <MNCLink type="url_reviews" label="Reviews">http://www.onthesnow.com/low-tatras-north/jasna-nizke-tatry-chopok-sever/reviews.html?XE_AFF=denver%20post&amp;XE_LNK=</MNCLink>
+                     <MNCLink type="url_cams" label="Web Cam &amp; Photos">http://www.onthesnow.com/low-tatras-north/jasna-nizke-tatry-chopok-sever/webcams.html?XE_AFF=denver%20post&amp;XE_LNK=Cams</MNCLink>
+                     <MNCLink type="url_lift_tickets" label="Lift Tickets">http://www.onthesnow.com/low-tatras-north/jasna-nizke-tatry-chopok-sever/lift-tickets.html?XE_AFF=denver%20post&amp;XE_LNK=LiftTix</MNCLink>
+                     <MNCLink type="url_info" label="Resort Overview">http://www.onthesnow.com/low-tatras-north/jasna-nizke-tatry-chopok-sever/ski-resort.html?XE_AFF=denver%20post&amp;XE_LNK=Resort_Info</MNCLink>
+                 </SkiArea>
+                 <SkiArea id="3226">
+                     <Name>Kojšovská Hoľa</Name>
+                     <ShortName>Kojšovská Hoľa</ShortName>
+                     <Open>Call Ahead</Open>
+                     <ReportIndicators>
+                         <Ski>yes</Ski>
+                         <Snowboard>yes</Snowboard>
+                         <CrossCountry>yes</CrossCountry>
+                     </ReportIndicators>
+                     <NewSnow24 unit="IN">0</NewSnow24>
+                     <NewSnow24 unit="CM">0</NewSnow24>
+                     <NewSnow48 unit="IN">0</NewSnow48>
+                     <NewSnow48 unit="CM">0</NewSnow48>
+                     <NewSnow72 unit="IN">0</NewSnow72>
+                     <NewSnow72 unit="CM">0</NewSnow72>
+                     <BaseDepth unit="IN">0</BaseDepth>
+                     <BaseDepth unit="CM">0</BaseDepth>
+                     <TopDepth unit="IN">0</TopDepth>
+                     <TopDepth unit="CM">0</TopDepth>
+                     <Conditions></Conditions>
+                     <NumLiftsOpen>N/A</NumLiftsOpen>
+-                    <NumLiftsTotal>4</NumLiftsTotal>
++                    <NumLiftsTotal>5</NumLiftsTotal>
+                     <PerLiftsOpen>0</PerLiftsOpen>
+                     <NumberOfRuns>N/A</NumberOfRuns>
+                     <AcresOpen>0</AcresOpen>
+                     <KmXC>N/A</KmXC>
+                     <EventNotices>/eastern-slovakia-abov-kosice/kojsovska-hola/events.html</EventNotices>
+                     <URL>http://www.onthesnow.com/c/l?a=3226&amp;u=http://skiparkerika.sk/</URL>
+                     <Email>skiparkerika@skiparkerika.sk</Email>
+                     <CallAheadPhone>+421 911 900 802</CallAheadPhone>
+                     <ProjectedOpeningDate>12/19/14</ProjectedOpeningDate>
+                     <ProjectedClosingDate>3/29/15</ProjectedClosingDate>
+                     <LastUpdate>7/3/14</LastUpdate>
+                     <SnowboardReport>
+                         <ParkReshaped>N/A</ParkReshaped>
+                         <PipeRecut>N/A</PipeRecut>
+                         <Hits>0</Hits>
+                         <Pipes></Pipes>
+                     </SnowboardReport>
+                     <CrossCountryReport>
+                         <Facilities></Facilities>
+                         <NumberOfTrails></NumberOfTrails>
+                         <KmOpen>N/A</KmOpen>
+                         <KmTrackset>N/A</KmTrackset>
+                         <KmSkateGroomed>N/A</KmSkateGroomed>
+                     </CrossCountryReport>
+                     <MNCLink type="url_info_trailmap_export" label="Trail Map">http://www.onthesnow.com/eastern-slovakia-abov-kosice/kojsovska-hola/trailmap.html?XE_AFF=denver%20post&amp;XE_LNK=</MNCLink>
+                     <MNCLink type="url_info_weather" label="Weather Report">http://www.onthesnow.com/eastern-slovakia-abov-kosice/kojsovska-hola/weather.html?XE_AFF=denver%20post&amp;XE_LNK=Weather</MNCLink>
+                     <MNCLink type="url_travel" label="Skiing Deals">http://www.onthesnow.com/eastern-slovakia-abov-kosice/kojsovska-hola/travel.html?XE_AFF=denver%20post&amp;XE_LNK=Travel</MNCLink>
+                     <MNCLink type="url_reviews" label="Reviews">http://www.onthesnow.com/eastern-slovakia-abov-kosice/kojsovska-hola/reviews.html?XE_AFF=denver%20post&amp;XE_LNK=</MNCLink>
+                     <MNCLink type="url_cams" label="Web Cam &amp; Photos">http://www.onthesnow.com/eastern-slovakia-abov-kosice/kojsovska-hola/webcams.html?XE_AFF=denver%20post&amp;XE_LNK=Cams</MNCLink>
+                     <MNCLink type="url_lift_tickets" label="Lift Tickets">http://www.onthesnow.com/eastern-slovakia-abov-kosice/kojsovska-hola/lift-tickets.html?XE_AFF=denver%20post&amp;XE_LNK=LiftTix</MNCLink>
+                     <MNCLink type="url_info" label="Resort Overview">http://www.onthesnow.com/eastern-slovakia-abov-kosice/kojsovska-hola/ski-resort.html?XE_AFF=denver%20post&amp;XE_LNK=Resort_Info</MNCLink>
+                 </SkiArea>
+                 <SkiArea id="3227">
+                     <Name>Krahule</Name>
+@@ -89919,69 +89919,69 @@
+                     <Email>lopusny@slovanet.sk</Email>
+                     <CallAheadPhone>+421 903 537 958</CallAheadPhone>
+                     <ProjectedOpeningDate>12/19/14</ProjectedOpeningDate>
+                     <ProjectedClosingDate>3/29/15</ProjectedClosingDate>
+                     <LastUpdate>9/1/13</LastUpdate>
+                     <MNCLink type="url_info_trailmap_export" label="Trail Map">http://www.onthesnow.com/slovak-paradise-south-spis/tisovec-banovo/trailmap.html?XE_AFF=denver%20post&amp;XE_LNK=</MNCLink>
+                     <MNCLink type="url_info_weather" label="Weather Report">http://www.onthesnow.com/slovak-paradise-south-spis/tisovec-banovo/weather.html?XE_AFF=denver%20post&amp;XE_LNK=Weather</MNCLink>
+                     <MNCLink type="url_travel" label="Skiing Deals">http://www.onthesnow.com/slovak-paradise-south-spis/tisovec-banovo/travel.html?XE_AFF=denver%20post&amp;XE_LNK=Travel</MNCLink>
+                     <MNCLink type="url_reviews" label="Reviews">http://www.onthesnow.com/slovak-paradise-south-spis/tisovec-banovo/reviews.html?XE_AFF=denver%20post&amp;XE_LNK=</MNCLink>
+                     <MNCLink type="url_cams" label="Web Cam &amp; Photos">http://www.onthesnow.com/slovak-paradise-south-spis/tisovec-banovo/webcams.html?XE_AFF=denver%20post&amp;XE_LNK=Cams</MNCLink>
+                     <MNCLink type="url_lift_tickets" label="Lift Tickets">http://www.onthesnow.com/slovak-paradise-south-spis/tisovec-banovo/lift-tickets.html?XE_AFF=denver%20post&amp;XE_LNK=LiftTix</MNCLink>
+                     <MNCLink type="url_info" label="Resort Overview">http://www.onthesnow.com/slovak-paradise-south-spis/tisovec-banovo/ski-resort.html?XE_AFF=denver%20post&amp;XE_LNK=Resort_Info</MNCLink>
+                 </SkiArea>
+                 <SkiArea id="3549">
+                     <Name>Plejsy</Name>
+                     <ShortName>Plejsy</ShortName>
+                     <Open>Call Ahead</Open>
+                     <ReportIndicators>
+                         <Ski>yes</Ski>
+                         <Snowboard>yes</Snowboard>
+                         <CrossCountry>yes</CrossCountry>
+                     </ReportIndicators>
+                     <NewSnow24 unit="IN">0</NewSnow24>
+                     <NewSnow24 unit="CM">0</NewSnow24>
+                     <NewSnow48 unit="IN">0</NewSnow48>
+                     <NewSnow48 unit="CM">0</NewSnow48>
+                     <NewSnow72 unit="IN">0</NewSnow72>
+                     <NewSnow72 unit="CM">0</NewSnow72>
+                     <BaseDepth unit="IN">0</BaseDepth>
+                     <BaseDepth unit="CM">0</BaseDepth>
+                     <TopDepth unit="IN">0</TopDepth>
+                     <TopDepth unit="CM">0</TopDepth>
+                     <Conditions></Conditions>
+                     <NumLiftsOpen>N/A</NumLiftsOpen>
+-                    <NumLiftsTotal>6</NumLiftsTotal>
++                    <NumLiftsTotal>10</NumLiftsTotal>
+                     <PerLiftsOpen>0</PerLiftsOpen>
+                     <NumberOfRuns>N/A</NumberOfRuns>
+                     <AcresOpen>0</AcresOpen>
+                     <KmXC>N/A</KmXC>
+                     <EventNotices>/slovak-paradise-south-spis/ski-plejsy/events.html</EventNotices>
+                     <URL>http://www.onthesnow.com/c/l?a=3549&amp;u=http://plejsy.com</URL>
+                     <Email>plejsy@plejsy.sk</Email>
+                     <CallAheadPhone> + 421 53 429 80 15</CallAheadPhone>
+                     <ProjectedOpeningDate>12/19/14</ProjectedOpeningDate>
+                     <ProjectedClosingDate>3/29/15</ProjectedClosingDate>
+                     <LastUpdate>3/21/14</LastUpdate>
+                     <SnowboardReport>
+                         <ParkReshaped>N/A</ParkReshaped>
+                         <PipeRecut>N/A</PipeRecut>
+                         <Hits>0</Hits>
+                         <Pipes></Pipes>
+                     </SnowboardReport>
+                     <CrossCountryReport>
+                         <Facilities></Facilities>
+                         <NumberOfTrails></NumberOfTrails>
+                         <KmOpen>N/A</KmOpen>
+                         <KmTrackset>N/A</KmTrackset>
+                         <KmSkateGroomed>N/A</KmSkateGroomed>
+                     </CrossCountryReport>
+                     <MNCLink type="url_info_trailmap_export" label="Trail Map">http://www.onthesnow.com/slovak-paradise-south-spis/ski-plejsy/trailmap.html?XE_AFF=denver%20post&amp;XE_LNK=</MNCLink>
+                     <MNCLink type="url_info_weather" label="Weather Report">http://www.onthesnow.com/slovak-paradise-south-spis/ski-plejsy/weather.html?XE_AFF=denver%20post&amp;XE_LNK=Weather</MNCLink>
+                     <MNCLink type="url_travel" label="Skiing Deals">http://www.onthesnow.com/slovak-paradise-south-spis/ski-plejsy/travel.html?XE_AFF=denver%20post&amp;XE_LNK=Travel</MNCLink>
+                     <MNCLink type="url_reviews" label="Reviews">http://www.onthesnow.com/slovak-paradise-south-spis/ski-plejsy/reviews.html?XE_AFF=denver%20post&amp;XE_LNK=</MNCLink>
+                     <MNCLink type="url_cams" label="Web Cam &amp; Photos">http://www.onthesnow.com/slovak-paradise-south-spis/ski-plejsy/webcams.html?XE_AFF=denver%20post&amp;XE_LNK=Cams</MNCLink>
+                     <MNCLink type="url_lift_tickets" label="Lift Tickets">http://www.onthesnow.com/slovak-paradise-south-spis/ski-plejsy/lift-tickets.html?XE_AFF=denver%20post&amp;XE_LNK=LiftTix</MNCLink>
+                     <MNCLink type="url_info" label="Resort Overview">http://www.onthesnow.com/slovak-paradise-south-spis/ski-plejsy/ski-resort.html?XE_AFF=denver%20post&amp;XE_LNK=Resort_Info</MNCLink>
+                 </SkiArea>
+                 <SkiArea id="3571">
+                     <Name>Važec – Birutova</Name>
