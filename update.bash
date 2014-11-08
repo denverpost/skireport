@@ -12,6 +12,7 @@
 # cd /var/www/vhosts/denverpostplus.com/httpdocs/app/skireport/; /bin/sh ./update.bash update denverpostplus.com/app ./ db27949 $DB_PASS db27949_ski localhost
 
 TEST=0
+REPORT='snowreport'
 
 while [ "$1" != "" ]; do
     case $1 in
@@ -22,37 +23,30 @@ while [ "$1" != "" ]; do
     shift
 done
 
+if [ -z "$API_TOKEN" ]
+then
+    echo "ERROR: Environment var API_TOKEN must be set."
+    echo "How to set it:"
+    echo "$ export API_TOKEN='value'"
+    exit 2
+fi
 
-rm ski-old.xml
-mv ski-new.xml ski-old.xml
-wget -O ski-new.xml http://dyn.onthesnow.com/media/denverpost/denverpost/xml/na-ski.xml
-
-# Output the differences in the xml files to text
-diff -U34 ski-new.xml ski-old.xml > skidiff.tmp.txt
-# diff -U34 ski-new.xml na-ski.original.xml > st
-# grep 'SkiArea' st > stt
-
-# Delete the cruft (lines 3-44) off the top of the file
-sed 3,44d skidiff.tmp.txt > skidiff.txt
-
-# Write the updated SkiArea ids to ids.tmp.txt
-grep -o 'SkiArea id="[0-9]*' skidiff.tmp.txt > ids.tmp.txt
-
-# Delete the cruft and save it as ids.txt
-sed 's/SkiArea id="//g' ids.tmp.txt > ids.txt
-
+# We have an API token.
+# We use that to download json snow report data for each Colorado resort.
 #wget -O sql http://$2/skireport/update.php?$1
+for RESORT in `cat ids.colorado.txt`;
+do
+    URL='http://clientservice.onthesnow.com/externalservice/resort/$RESORT/$REPORT?token=$API_TOKEN&language=en&country=US'
+done;
+
 php update.php $1 > sql
 
 # mysql -u db27949 --password=$DB_PASS db27949_ski < handsql
-mysql --host=$7 --user=$4 --password=$5 $6 < sql
-
-rm ids.tmp.txt
-rm skidiff.tmp.txt
+#mysql --host=$7 --user=$4 --password=$5 $6 < sql
 
 # Run the back-up routine
-php update.php backup > sql_backup
-mysql --host=$7 --user=$4 --password=$5 $6 < sql_backup
+#php update.php backup > sql_backup
+#mysql --host=$7 --user=$4 --password=$5 $6 < sql_backup
 
 #Clean up the tables and write the changes to the report_delta db.
 #wget -O- http://$2/skireport/cleanup.php

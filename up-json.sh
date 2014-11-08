@@ -10,7 +10,7 @@
 # ./update.sh updatefilewrite localhost
 # /bin/sh ./update.sh update denverpostplus.com/app db27949 passwordy db27949_ski localhost
 
-wget -O ski-new.json 'http://feeds.snocountry.com/conditions.php?apiKey=denver536.post214&states=co&resortType=Alpine'
+wget -O ski-new.json 'http://feeds.snocountry.com/conditions.php?apiKey=&states=co&resortType=Alpine'
 
 #wget -O $3sql http://$2/skireport/update.php?$1
 /usr/bin/php update.php $1 > sql
