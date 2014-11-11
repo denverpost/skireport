@@ -1,5 +1,5 @@
-<?
-if ( $_SERVER['SERVER_NAME'] == 'owsley'  || $_SERVER['SERVER_ADMIN'] == 'webmaster@localhost' || $_SERVER['HOME'] == '/home/joe' )
+<?php
+if ( $_ENV['deploy'] == 'localhost' )
 {
 	$db_url = "localhost";
 	$db_userid = "root";
