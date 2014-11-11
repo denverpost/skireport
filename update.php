@@ -53,7 +53,37 @@ $sql_report = "
 		( skiarea_id, report_ski, report_snowboard, report_crosscountry, newsnow_24_in, newsnow_24_cm, newsnow_48_in, newsnow_48_cm, newsnow_72_in, newsnow_72_cm, basedepth_in, basedepth_cm, topdepth_in, topdepth_cm, conditions, numliftsopen, numliftstotal, perliftsopen, numberofruns, acresopen, kmxc, eventnotices, cc_facilities, cc_numberoftrails, cc_kmopen, cc_kmtrackset, cc_kmskategroomed, sb_parkresshaped, sb_piperecut, sb_hits, sb_pipes, basetemperature_f, basetemperature_c, baseweather, lastupdate, open )
 		VALUES ";
 
-{
+// KILL FIELD LIST:
+// report.cc_facilities
+foreach ( $ids as $id ):
+    $record = json_decode(file_get_contents('/tmp/' . $id . '-snowreport'));
+    if ( $record ):
+        $report = $record->report;
+        if ( ( $argv['update'] == TRUE ) || $argv['report'] == TRUE )
+        {
+            $sql_report .= "
+( $id, 0, 0, 0, $report->snowfall->snow24h, 0, $report->snowfall->snow48h, 0, $report->snowfall->snow72h, 0, $report->snowQuality->onSlope->lowerDepth, 0, $report->snowQuality->onSlope->upperDepth, 0, '$report->snowQuality->onSlope->surfaceBottom,$report->snowQuality->onSlope->surfaceTop', $report->liftsReport->liftsOpen, $NumLiftsTotal, $report->liftsReport->perLiftsOpen, $report->terrainReport->trailsOpen, $report->terrainReport->acresOpen, $report->terrainReport->numKmOpen, '$EventNotices', '$Facilities', $NumberOfTrails, $KmOpen, $KmTrackset, $KmSkateGroomed, $ParkResshaped, $PipeRecut, $Hits, $Pipes, $report->resortReportedWeather->tempBottom, 0, '$report->resortReportedWeather->baseWeatherText', STR_TO_DATE('$LastUpdate', '%m/%d/%y'), '$Open' ),";
+        }
+
+        // Also, we save the LastUpdate value in an array assigned
+        // to that SkiArea for reference
+        if ( $State == 8 )
+        {
+            $last_update[intval($SkiArea)] = $LastUpdate;
+            $update_sql[intval($SkiArea)] = "
+( $SkiArea, $Ski, $Snowboard, $CrossCountry, $NewSnow24_in, $NewSnow24_cm, $NewSnow48_in, $NewSnow48_cm, $NewSnow72_in, $NewSnow72_cm, $BaseDepth_in, $BaseDepth_cm, $TopDepth_in, $TopDepth_cm, '$Conditions', $NumLiftsOpen, $NumLiftsTotal, $PerLiftsOpen, $NumberOfRuns, $AcresOpen, $KmXC, '$EventNotices', '$Facilities', $NumberOfTrails, $KmOpen, $KmTrackset, $KmSkateGroomed, $ParkResshaped, $PipeRecut, $Hits, $Pipes, $BaseTemperature_f, $BaseTemperature_c, '$BaseWeather', STR_TO_DATE('$LastUpdate', '%m/%d/%y'), '$Open' ),";
+        }
+    endif;
+endforeach;
+    
+
+
+//Return the query, with the final comma chopped off and replaced with a semi-colon.
+if ( $argv['links'] == TRUE ) echo substr($sql_skiarea_links, 0, -1) . ";\n";
+if ( $argv['ski'] == TRUE ) echo substr($sql_skiarea, 0, -1) . ";\n";
+if ( $argv['skiarea_update'] == TRUE ) echo $sql_skiarea_update;
+if ( $argv['report'] == TRUE || $argv['update'] == TRUE ) echo substr($sql_report, 0, -1) . ";\n";
+
 /*
 // Data cleanup
 					//Turning "yes" into 1 and "no" into 0
@@ -106,33 +136,6 @@ $sql_report = "
 		( $SkiArea, $Country, $Region, $State, '" . addslashes($Name) . "', '" . addslashes($ShortName) . "', '$URL', '$Email', '$CallAheadPhone', STR_TO_DATE('$ProjectedOpeningDate', '%m/%d/%y'), STR_TO_DATE('$ProjectedClosingDate', '%m/%d/%y'), STR_TO_DATE('$LastUpdate', '%m/%d/%y') ),";
 				}
 */
-foreach ( $ids as $id ):
-    $record = json_decode(file_get_contents('/tmp/snowreport-' . $id));
-    if ( $record ):
-        if ( ( $argv['update'] == TRUE ) || $argv['report'] == TRUE )
-        {
-            $sql_report .= "
-( $SkiArea, $Ski, $Snowboard, $CrossCountry, $NewSnow24_in, $NewSnow24_cm, $NewSnow48_in, $NewSnow48_cm, $NewSnow72_in, $NewSnow72_cm, $BaseDepth_in, $BaseDepth_cm, $TopDepth_in, $TopDepth_cm, '$Conditions', $NumLiftsOpen, $NumLiftsTotal, $PerLiftsOpen, $NumberOfRuns, $AcresOpen, $KmXC, '$EventNotices', '$Facilities', $NumberOfTrails, $KmOpen, $KmTrackset, $KmSkateGroomed, $ParkResshaped, $PipeRecut, $Hits, $Pipes, $BaseTemperature_f, $BaseTemperature_c, '$BaseWeather', STR_TO_DATE('$LastUpdate', '%m/%d/%y'), '$Open' ),";
-        }
-
-        // Also, we save the LastUpdate value in an array assigned
-        // to that SkiArea for reference
-        if ( $State == 8 )
-        {
-            $last_update[intval($SkiArea)] = $LastUpdate;
-            $update_sql[intval($SkiArea)] = "
-( $SkiArea, $Ski, $Snowboard, $CrossCountry, $NewSnow24_in, $NewSnow24_cm, $NewSnow48_in, $NewSnow48_cm, $NewSnow72_in, $NewSnow72_cm, $BaseDepth_in, $BaseDepth_cm, $TopDepth_in, $TopDepth_cm, '$Conditions', $NumLiftsOpen, $NumLiftsTotal, $PerLiftsOpen, $NumberOfRuns, $AcresOpen, $KmXC, '$EventNotices', '$Facilities', $NumberOfTrails, $KmOpen, $KmTrackset, $KmSkateGroomed, $ParkResshaped, $PipeRecut, $Hits, $Pipes, $BaseTemperature_f, $BaseTemperature_c, '$BaseWeather', STR_TO_DATE('$LastUpdate', '%m/%d/%y'), '$Open' ),";
-        }
-    endif;
-endforeach;
-    
-
-
-//Return the query, with the final comma chopped off and replaced with a semi-colon.
-if ( $argv['links'] == TRUE ) echo substr($sql_skiarea_links, 0, -1) . ";\n";
-if ( $argv['ski'] == TRUE ) echo substr($sql_skiarea, 0, -1) . ";\n";
-if ( $argv['skiarea_update'] == TRUE ) echo $sql_skiarea_update;
-if ( $argv['report'] == TRUE || $argv['update'] == TRUE ) echo substr($sql_report, 0, -1) . ";\n";
 
 
 
@@ -150,7 +153,7 @@ if ( $argv['backup'] == TRUE )
 			VALUES ";
 
 	// This is the update.php backup -- in case a resort has updated their information, but we missed it in the xml diff
-	foreach ( $input['ids']['skiarea'] as $SkiArea )
+	foreach ( $ids as $SkiArea )
 	{
 		// We're looking here for Colorado resorts that have an older lastupdate date than the XML file.
 		//echo $SkiArea . ' ' . $last_update[intval($SkiArea)] . ' ';
