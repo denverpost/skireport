@@ -1,5 +1,5 @@
 <?
-elseif ( $_SERVER['SERVER_NAME'] == 'owsley'  || $_SERVER['SERVER_ADMIN'] == 'webmaster@localhost' || $_SERVER['HOME'] == '/home/joe' )
+if ( $_SERVER['SERVER_NAME'] == 'owsley'  || $_SERVER['SERVER_ADMIN'] == 'webmaster@localhost' || $_SERVER['HOME'] == '/home/joe' )
 {
 	$db_url = "localhost";
 	$db_userid = "root";
