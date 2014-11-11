@@ -11,7 +11,7 @@ include('output_constants.php');
 $last_update = array();
 $update_sql = array();
 
-$xml = simplexml_load_file($dirpath . "ski-new.xml");
+//$xml = simplexml_load_file($dirpath . "ski-new.xml");
 function attr_gather($input)
 {
 	foreach ( $input->attributes() as $key => $value ) $return .= trim($key) . ':' . trim($value) . '|'	;

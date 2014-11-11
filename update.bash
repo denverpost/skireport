@@ -12,12 +12,18 @@
 # cd /var/www/vhosts/denverpostplus.com/httpdocs/app/skireport/; /bin/sh ./update.bash update denverpostplus.com/app ./ db27949 $DB_PASS db27949_ski localhost
 
 TEST=''
+FLUSH=''
 REPORT='snowreport'
 
 while [ "$1" != "" ]; do
     case $1 in
         -t | --test ) shift
             TEST=1
+            ;;
+    esac
+    case $1 in
+        -f | --flush ) shift
+            FLUSH=1
             ;;
     esac
     shift
