@@ -11,7 +11,7 @@
 # ./update.bash updatefilewrite localhost
 # cd /var/www/vhosts/denverpostplus.com/httpdocs/app/skireport/; /bin/sh ./update.bash update denverpostplus.com/app ./ db27949 $DB_PASS db27949_ski localhost
 
-TEST=0
+TEST=''
 REPORT='snowreport'
 
 while [ "$1" != "" ]; do
@@ -33,10 +33,25 @@ fi
 
 # We have an API token.
 # We use that to download json snow report data for each Colorado resort.
-#wget -O sql http://$2/skireport/update.php?$1
+if [ -z "$TEST" ]
+then
+    > ids.txt
+fi
+
 for RESORT in `cat ids.colorado.txt`;
 do
-    URL='http://clientservice.onthesnow.com/externalservice/resort/$RESORT/$REPORT?token=$API_TOKEN&language=en&country=US'
+    if [ -z "$TEST" ]
+    then
+        mv /tmp/$RESORT-$REPORT /tmp/$RESORT-$REPORT-old
+        URL="http://clientservice.onthesnow.com/externalservice/resort/$RESORT/$REPORT?token=$API_TOKEN&language=en&country=US"
+        wget -O /tmp/$RESORT-$REPORT "$URL"
+    fi
+
+    # If this report is different than the prior, we add it to the list of resorts to update.
+    if [ ! -z `diff /tmp/$RESORT-$REPORT-old /tmp/$RESORT-$REPORT` ]
+    then
+        echo $RESORT >> ids.txt
+    fi
 done;
 
 php update.php $1 > sql
