@@ -1,14 +1,13 @@
 <?php
+date_default_timezone_set('America/Denver');
+$input = array(
+    'db' => 'db27949_ski',
+    'server' => 'localhost',
+    'username' => 'root',
+    'password' => $_ENV['DB_PASS']);
+
 if ( $_ENV['deploy'] == 'localhost' )
 {
-	$db_url = "localhost";
-	$db_userid = "root";
-	$db_pwd = $_ENV['DB_PASS'];
-	$db_dbname = "db27949_ski";
-	$input['db'] = 'db27949_ski';
-	$input['server'] = 'localhost';
-	$input['username'] = 'root';
-	$input['password'] = $_ENV['DB_PASS'];
 	$dirpath = '/home/joe/work/skireport/';
 	$cachepath = '/home/joe/work/skireport/cache/';
 	$templatepath = '/home/joe/work/skireport/template/';
@@ -18,14 +17,6 @@ if ( $_ENV['deploy'] == 'localhost' )
 }
 else
 {
-	$db_url = "localhost";
-	$db_userid = "db27949";
-	$db_pwd = $_ENV['DB_PASS'];
-	$db_dbname = "db27949_ski";
-	$input['db'] = 'db27949_ski';
-	$input['server'] = 'localhost';
-	$input['username'] = 'db27949';
-	$input['password'] = $_ENV['DB_PASS'];
     $inputftp['error_check'] = TRUE;
 	$dirpath = '/var/www/vhosts/denverpostplus.com/httpdocs/app/skireport/';
 	$cachepath = '/var/www/vhosts/denverpostplus.com/httpdocs/cache/';
