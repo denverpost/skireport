@@ -1,5 +1,5 @@
 <?php
-date_default_timezone_set('America/Denver');
+ . "\n"date_default_timezone_set('America/Denver');
 $input = array(
     'db' => 'db27949_ski',
     'server' => 'localhost',
@@ -32,10 +32,7 @@ if ( $_SERVER['argc'] > 1 )
 {
 	$newline = "\n";
 
-	foreach ( $_SERVER['argv'] as $value )
-	{
-		$argv[$value] = TRUE;
-	}
+	foreach ( $_SERVER['argv'] as $value ) $argv[$value] = TRUE;
 }
 else
 {

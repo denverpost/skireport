@@ -5,8 +5,8 @@
 // | Author: Joe Murphy <jmurphy@denverpost.com>                          |
 // +----------------------------------------------------------------------+
 
-include('output_constants.php');
-
+//include('output_constants.php');
+foreach ( $_SERVER['argv'] as $value ) $argv[$value] = TRUE;
 
 $last_update = array();
 $update_sql = array();
@@ -23,17 +23,18 @@ function attr_get($xml, $name)
 }
 
 
+//$ids = explode("\n", file_get_contents('ids.txt'));
+//if ( count($ids) == 1 || ( count($ids) == 2 && $ids[0] == "11" ) ) die('Nothing to update');
+
 if ( $argv['update'] == TRUE )
 {
-	$ids = explode("\n", file_get_contents($dirpath . 'ids.txt'));
-	if ( count($ids) == 1 || ( count($ids) == 2 && $ids[0] == "11" ) ) die('Nothing to update');
+       $ids = explode("\n", file_get_contents($dirpath . 'ids.txt'));
+       //if ( count($ids) == 1 || ( count($ids) == 2 && $ids[0] == "11" ) ) die('Nothing to update');
 }
-elseif ( $argv['colorado'] == TRUE || $argv['backup'] == TRUE )
+if ( $argv[1] == 'colorado' || $argv[1] == 'backup' )
 {
-	$ids = explode("\n", file_get_contents($dirpath . 'ids.colorado.txt'));
+	$ids = explode("\n", file_get_contents('ids.colorado.txt'));
 }
-
-
 
 $sql_skiarea = "
 	INSERT INTO skiarea
@@ -56,13 +57,57 @@ $sql_report = "
 // KILL FIELD LIST:
 // report.cc_facilities
 foreach ( $ids as $id ):
-    $record = json_decode(file_get_contents('/tmp/' . $id . '-snowreport'));
+    if ( trim($id) == '' ) continue;
+
+    echo $id . "\n";
+    $ASSOC_ARRAY = TRUE;
+    $record = json_decode(file_get_contents('/tmp/' . $id . '-snowreport'), $ASSOC_ARRAY);
     if ( $record ):
-        $report = $record->report;
+        $report = $record['report'];
         if ( ( $argv['update'] == TRUE ) || $argv['report'] == TRUE )
         {
-            $sql_report .= "
-( $id, 0, 0, 0, $report->snowfall->snow24h, 0, $report->snowfall->snow48h, 0, $report->snowfall->snow72h, 0, $report->snowQuality->onSlope->lowerDepth, 0, $report->snowQuality->onSlope->upperDepth, 0, '$report->snowQuality->onSlope->surfaceBottom,$report->snowQuality->onSlope->surfaceTop', $report->liftsReport->liftsOpen, $NumLiftsTotal, $report->liftsReport->perLiftsOpen, $report->terrainReport->trailsOpen, $report->terrainReport->acresOpen, $report->terrainReport->numKmOpen, '$EventNotices', '$Facilities', $NumberOfTrails, $KmOpen, $KmTrackset, $KmSkateGroomed, $ParkResshaped, $PipeRecut, $Hits, $Pipes, $report->resortReportedWeather->tempBottom, 0, '$report->resortReportedWeather->baseWeatherText', STR_TO_DATE('$LastUpdate', '%m/%d/%y'), '$Open' ),";
+            // We lay out these vars to make it easier for us to edit.
+            $sql_report_tmp = "
+( $id,
+ 0,
+ 0,
+ 0,
+ " . $report['snowfall']['snow24h'] . ",
+ 0,
+ " . $report['snowfall']['snow48h'] . ",
+ 0,
+ " . $report['snowfall']['snow72h'] . ",
+ 0,
+ " . $report['snowQuality']['onSlope']['lowerDepth'] . ",
+ 0,
+ " . $report['snowQuality']['onSlope']['upperDepth'] . ",
+ 0,
+ '" . $report['snowQuality']['onSlope']['surfaceBottom'] . "',
+ " . $report['snowQuality']['onSlope']['surfaceTop'] .",
+ " . $report['liftsReport']['liftsOpen'] . ",
+ " . $NumLiftsTotal . ",
+ " . $report['liftsReport']['perLiftsOpen'] . ",
+ " . $report['terrainReport']['trailsOpen'] . ",
+ " . $report['terrainReport']['acresOpen'] . ",
+ " . $report['terrainReport']['numKmOpen'] . ",
+ '" . $EventNotices . "',
+ '" . $Facilities . "',
+ " . $NumberOfTrails . ",
+ " . $KmOpen . ",
+ " . $KmTrackset . ",
+ " . $KmSkateGroomed . ",
+ " . $ParkResshaped . ",
+ " . $PipeRecut . ",
+ " . $Hits . ",
+ " . $Pipes . ",
+ " . $report['resortReportedWeather']['tempBottom'] . ",
+ 0,
+ '" . $report['resortReportedWeather']['baseWeatherText'] . "',
+ STR_TO_DATE('$LastUpdate',
+ '%m/%d/%y'),
+ '$Open' ),
+";
+            $sql_report .= str_replace("\n", "", $sql_report_tmp)  . "\n";
         }
 
         // Also, we save the LastUpdate value in an array assigned
@@ -82,7 +127,7 @@ endforeach;
 if ( $argv['links'] == TRUE ) echo substr($sql_skiarea_links, 0, -1) . ";\n";
 if ( $argv['ski'] == TRUE ) echo substr($sql_skiarea, 0, -1) . ";\n";
 if ( $argv['skiarea_update'] == TRUE ) echo $sql_skiarea_update;
-if ( $argv['report'] == TRUE || $argv['update'] == TRUE ) echo substr($sql_report, 0, -1) . ";\n";
+if ( $argv['report'] == TRUE || $argv['update'] == TRUE ) echo substr($sql_report, 0, -2) . ";\n";
 
 /*
 // Data cleanup
