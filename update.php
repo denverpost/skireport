@@ -51,7 +51,7 @@ $sql_skiarea_links = "
 
 $sql_report = "
 	INSERT INTO report
-		( skiarea_id, report_ski, report_snowboard, report_crosscountry, newsnow_24_in, newsnow_24_cm, newsnow_48_in, newsnow_48_cm, newsnow_72_in, newsnow_72_cm, basedepth_in, basedepth_cm, topdepth_in, topdepth_cm, conditions, numliftsopen, numliftstotal, perliftsopen, numberofruns, acresopen, kmxc, eventnotices, cc_facilities, cc_numberoftrails, cc_kmopen, cc_kmtrackset, cc_kmskategroomed, sb_parkresshaped, sb_piperecut, sb_hits, sb_pipes, basetemperature_f, basetemperature_c, baseweather, lastupdate, open )
+		( skiarea_id, newsnow_24_in, newsnow_48_in, newsnow_72_in, basedepth_in, topdepth_in, conditions, numliftsopen, numliftstotal, perliftsopen, numberofruns, acresopen, kmxc, eventnotices, cc_facilities, cc_numberoftrails, cc_kmopen, cc_kmtrackset, cc_kmskategroomed, sb_parkresshaped, sb_piperecut, sb_hits, sb_pipes, basetemperature_f, basetemperature_c, baseweather, lastupdate, open )
 		VALUES ";
 
 // KILL FIELD LIST:
@@ -64,36 +64,28 @@ foreach ( $ids as $id ):
     if ( $record ):
         $report = $record['report'];
         // Null out the fields we haven't dealt with upgrading yet.
-        $NumLiftsTotal = 'NULL';
-        $NumberOfTrails = 'NULL';
-        $KmOpen = 'NULL';
-        $KmTrackset = 'NULL';
-        $KmSkateGroomed = 'NULL';
-        $ParkResshaped = 'NULL';
-        $PipeRecut = 'NULL';
-        $Hits = 'NULL';
-        $Pipes = 'NULL';
+        $NumLiftsTotal = 0;
+        $NumberOfTrails = 0;
+        $KmOpen = 0;
+        $KmTrackset = 0;
+        $KmSkateGroomed = 0;
+        $ParkResshaped = 0;
+        $PipeRecut = 0;
+        $Hits = 0;
+        $Pipes = 0;
         
         if ( ( $argv['update'] == TRUE ) || $argv['report'] == TRUE )
         {
+            if ( $report['terrainReport']['acresOpen'] == '' ) $report['terrainReport']['acresOpen'] = 0;
             // We lay out these vars to make it easier for us to edit.
             $sql_report_tmp = "
 ( $id,
- 0,
- 0,
- 0,
  " . $report['snowfall']['snow24h'] . ",
- 0,
  " . $report['snowfall']['snow48h'] . ",
- 0,
  " . $report['snowfall']['snow72h'] . ",
- 0,
  " . $report['snowQuality']['onSlope']['lowerDepth'] . ",
- 0,
  " . $report['snowQuality']['onSlope']['upperDepth'] . ",
- 0,
- '" . $report['snowQuality']['onSlope']['surfaceBottom'] . "',
- '" . $report['snowQuality']['onSlope']['surfaceTop'] ."',
+ '" . $report['snowQuality']['onSlope']['surfaceBottom'] . ", " . $report['snowQuality']['onSlope']['surfaceTop'] ."',
  " . $report['liftsReport']['liftsOpen'] . ",
  " . $NumLiftsTotal . ",
  " . $report['liftsReport']['perLiftsOpen'] . ",
