@@ -59,11 +59,21 @@ $sql_report = "
 foreach ( $ids as $id ):
     if ( trim($id) == '' ) continue;
 
-    echo $id . "\n";
     $ASSOC_ARRAY = TRUE;
     $record = json_decode(file_get_contents('/tmp/' . $id . '-snowreport'), $ASSOC_ARRAY);
     if ( $record ):
         $report = $record['report'];
+        // Null out the fields we haven't dealt with upgrading yet.
+        $NumLiftsTotal = 'NULL';
+        $NumberOfTrails = 'NULL';
+        $KmOpen = 'NULL';
+        $KmTrackset = 'NULL';
+        $KmSkateGroomed = 'NULL';
+        $ParkResshaped = 'NULL';
+        $PipeRecut = 'NULL';
+        $Hits = 'NULL';
+        $Pipes = 'NULL';
+        
         if ( ( $argv['update'] == TRUE ) || $argv['report'] == TRUE )
         {
             // We lay out these vars to make it easier for us to edit.
@@ -83,7 +93,7 @@ foreach ( $ids as $id ):
  " . $report['snowQuality']['onSlope']['upperDepth'] . ",
  0,
  '" . $report['snowQuality']['onSlope']['surfaceBottom'] . "',
- " . $report['snowQuality']['onSlope']['surfaceTop'] .",
+ '" . $report['snowQuality']['onSlope']['surfaceTop'] ."',
  " . $report['liftsReport']['liftsOpen'] . ",
  " . $NumLiftsTotal . ",
  " . $report['liftsReport']['perLiftsOpen'] . ",
@@ -100,7 +110,7 @@ foreach ( $ids as $id ):
  " . $PipeRecut . ",
  " . $Hits . ",
  " . $Pipes . ",
- " . $report['resortReportedWeather']['tempBottom'] . ",
+ '" . $report['resortReportedWeather']['tempBottom'] . "',
  0,
  '" . $report['resortReportedWeather']['baseWeatherText'] . "',
  STR_TO_DATE('$LastUpdate',
