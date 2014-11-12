@@ -1,5 +1,5 @@
 <?php
- . "\n"date_default_timezone_set('America/Denver');
+date_default_timezone_set('America/Denver');
 $input = array(
     'db' => 'db27949_ski',
     'server' => 'localhost',
