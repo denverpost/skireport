@@ -74,6 +74,7 @@ $input = array(
         'TIMEAGO',
         'HEADERONE',
         'OPENCLOSED',
+        'SNOW-WIDGET',
         //DETAIL - Resort
     );
     $template['replace'] = array(
@@ -98,6 +99,7 @@ $input = array(
         '', //$timeago,
         $headerone,
         '', //$openclosed,
+        file_get_contents('content/snow-widget.html'),
         //DETAIL - Resort
     );
 
