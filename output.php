@@ -7,7 +7,7 @@
 
 /*
 Command-line arguments:
-/usr/bin/php /var/www/vhosts/denverpostplus.com/httpdocs/app/skireport/output.php $1 $2 $3
+php output.php $1 $2 $3
         $1: string: write('skiarea'/'links')
         $2: boolean: 'noftp'
 var_dump($_SERVER['argv']);

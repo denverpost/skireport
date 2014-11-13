@@ -9,7 +9,7 @@
 # If you wanted to just update the output files you would do this:
 # ./update.bash updatefilewrite denverpostplus.com/app
 # ./update.bash updatefilewrite localhost
-# cd /var/www/vhosts/denverpostplus.com/httpdocs/app/skireport/; /bin/sh ./update.bash update denverpostplus.com/app ./ db27949 $DB_PASS db27949_ski localhost
+# cd /var/www/vhosts/denverpostplus.com/httpdocs/app/skireport/; ./update.bash update denverpostplus.com/app ./ db27949 $DB_PASS db27949_ski localhost
 
 TEST=''
 FLUSH=''
@@ -67,15 +67,15 @@ done;
 php update.php $1 > sql
 
 # mysql -u db27949 --password=$DB_PASS db27949_ski < handsql
-#mysql --host=$7 --user=$4 --password=$5 $6 < sql
+mysql --host=$7 --user=$4 --password=$DB_PASS $6 < sql
 
 # Run the back-up routine
 #php update.php backup > sql_backup
-#mysql --host=$7 --user=$4 --password=$5 $6 < sql_backup
+#mysql --host=$7 --user=$4 --password=$DB_PASS $6 < sql_backup
 
 #Clean up the tables and write the changes to the report_delta db.
 #wget -O- http://$2/skireport/cleanup.php
-###php /var/www/vhosts/denverpostplus.com/httpdocs/app/skireport/cleanup.php > cleanuplog
+###php cleanup.php > cleanuplog
 
 #Do the update and check-up for colorado resorts
 #wget --delete-after http://$2/skireport/cleanup.php?colorado

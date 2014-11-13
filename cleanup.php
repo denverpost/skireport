@@ -34,36 +34,24 @@ else
 	$outputpath = $dirpath;
 }
 require("/var/www/lib/class.db.php");
-//require("/var/www/lib/class.page.php");
-//require("/var/www/lib/class.ftp.php");
 
 $db = new db($input['db'], $input);
 $db->connect();
-//$ftp = new ftp();
 unset($input);
 
 
 /*
 Loop through the most-recent ids and check:
-	1. To see if the most-recent record is identical to the previous record -- if it is identical, delete it, and if not see what the differences are.
-
-
+	1. To see if the most-recent record is identical to the previous record
+    If it is identical, delete it, and if not see what the differences are.
 */
 
 // Pull the list of recently-changed ids
 
-$ids_file = file_get_contents($outputpath . 'ids.txt');
+$ids_file = file_get_contents('ids.txt');
 $ids = explode("\n", trim($ids_file));
 
-/*
-if ( isset($_GET['colorado']) )
-{
-	$ids = explode("\n", file_get_contents($outputpath . 'ids.colorado.txt'));
-}
-$ids = explode("\n", file_get_contents($outputpath . 'ids.colorado.txt'));
-*/
-foreach ( $ids as $key => $value )
-{
+foreach ( $ids as $value ):
 	if ( $value != '' )
 	{
 		$diff_count = 0;
@@ -113,7 +101,8 @@ foreach ( $ids as $key => $value )
 		//var_dump($row_compare);
 	}
 
-}
+endforeach;
+
 //echo '<pre>' . $sql_delta;
 //echo '<pre>';
 //var_dump($sql_delete);
