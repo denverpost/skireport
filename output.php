@@ -64,10 +64,6 @@ if ( $_SERVER['argv'][1] == 'skiarea' ):
                                 $$row['slug'] .= '
                                         <!-- <p class="twitter">On the Ski Report:<br><a name="' . $row['slug'] . '_twitter_snow" href="http://twitter.com/' . $row['twitter_snow'] . '">Get the ' . $row['name'] . ' Snow Report updates on twitter.</a> <br><em>&rsaquo; <a href="http://www.denverpost.com/twitter#snow_report">Full list of snow report twitterers.</a></em></p> -->';
 
-                                // Logic to handle display of update data
-                                // Not in use: Look in output_scratch.php for this if you want it back.
-                                // END Logic to handle display of update data
-
 
                                 //ROW Put together the resort's recent-snow data
                                 unset($datatmp);
