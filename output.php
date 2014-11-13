@@ -19,13 +19,11 @@ require("output_constants.php");
 
 $db = new db($input['db'], $input);
 $db->connect();
-unset($input);
 
 // Hacky, for now
 if ( isset($_SERVER['argv'][2]) && $_SERVER['argv'][2] == 'override' ) $input['ids']['skiarea'] = array(507);
 
-if ( $_SERVER['argv'][1] == 'skiarea' )
-{
+if ( $_SERVER['argv'][1] == 'skiarea' ):
 
         //Loop through each skiarea
         foreach ( $input['ids']['skiarea'] as $id )
@@ -42,10 +40,10 @@ if ( $_SERVER['argv'][1] == 'skiarea' )
                         elseif ( trim($row['open']) == 'Call Ahead' ) { $openstr = 'callahead'; echo $row['slug'] . $newline; }
                         else $openstr = 'closed';
 
-                        $$row['slug']['timeago'] = '';
+                        //$$row['slug']['timeago'] = '';
 
 
-                        if ( $$row['slug']['markup'] == '' )
+                        if ( $$row['slug'] == '' )
                         {
                                 // This output goes to http://extras.denverpost.com/skireport, and to the RSS feeds
                                 //<h5>' . $row['timeago'] . '</h5>
@@ -59,13 +57,13 @@ if ( $_SERVER['argv'][1] == 'skiarea' )
                                 $timestamps['unix'][$row['slug']] = $row['lastupdate_time_unix'];
                                 $timestamps['rss'][$row['slug']] = $row['lastupdate_time_str_rss'];
 
-                                $$row['slug']['markup'] = '
+                                $$row['slug'] = '
                                         <h3><a name="' . $row['slug'] . '" href="http://extras.denverpost.com/skireport/colorado/' . $row['slug'] . '.html">' . $row['name'] . ' Ski Resort Snow Report</a></h3>
                                         <h5>Last Updated: ' . $row['lastupdate_str'] . $row['lastupdate_time_str'] . '</h5>
                                         ' . ifequal($row['open'], 'Call Ahead', '<h5><a href="http://extras.denverpost.com/skireport/colorado/' . $row['slug'] . '.html#more_phone_' . $row['slug'] . '" title="Get ' . $row['name'] . '\'s phone number">Call ahead before going</a></h5>') . '
                                         ' . ifgreaterthan($row['opendate'], '<h5>Projected Open: ' . $row['opendate_str'] . ' ( in ' . $row['opendate'] . ' days )</h5>');
 
-                                $$row['slug']['markup'] .= '
+                                $$row['slug'] .= '
                                         <!-- <p class="twitter">On the Ski Report:<br><a name="' . $row['slug'] . '_twitter_snow" href="http://twitter.com/' . $row['twitter_snow'] . '">Get the ' . $row['name'] . ' Snow Report updates on twitter.</a> <br><em>&rsaquo; <a href="http://www.denverpost.com/twitter#snow_report">Full list of snow report twitterers.</a></em></p> -->';
 
                                 // Logic to handle display of update data
@@ -219,18 +217,18 @@ if ( $_SERVER['argv'][1] == 'skiarea' )
 
                                 $webcams = webcams_get($row['slug']);
 
-                                $$row['slug']['markup'] .= '
+                                $$row['slug'] .= '
                                 ' . $snowlist . '
                                 ' . $slopelist . '
                                         <h4 class="more_link">&raquo; <a href="http://extras.denverpost.com/skireport/colorado/' . $row['slug'] . '.html#more_' . $row['slug'] . '">Get ' . $row['name'] . ' ski resort phone number, website, ticket info and directions</a></h4>';
 
                                 if ( $webcams != '' )
                                 {
-                                        $$row['slug']['markup'] .= '
+                                        $$row['slug'] .= '
                                         <h4 class="more_link">&raquo; <a href="http://extras.denverpost.com/skireport/colorado/' . $row['slug'] . '.html#webcams_' . $row['slug'] . '">See ' . $row['name'] . ' webcams here</a></h4>';
                                 }
 
-                                $$row['slug']['markup'] .= '
+                                $$row['slug'] .= '
                                         <div class="more">
                                                 <h4 id="more"><a name="more_' . $row['slug'] . '"></a>More about the ' . $row['name'] . ' Colorado Ski Resort</h4>
                                                 <dl>
@@ -248,7 +246,7 @@ if ( $_SERVER['argv'][1] == 'skiarea' )
                                         <div class="webcams">' . $webcams . '</div>';
 
                                 //Add this data to the output-by-opened-or-not (this output goes to http://www.denverpost.com/skireport)
-                                $$openstr .= $$row['slug']['markup'];
+                                $$openstr .= $$row['slug'];
                         }
                         unset($row);
                 }
@@ -302,7 +300,7 @@ if ( $_SERVER['argv'][1] == 'skiarea' )
                 // make sense to keep around here.
                 $body = str_replace('<h3><a name="' . $slug . '" href="http://extras.denverpost.com/skireport/colorado/' . $slug . '.html">' . $name . ' Ski Resort Snow Report</a></h3>', '<h1><a name="' . $slug . '"></a>' . $name . ' Ski Resort Snow Report</h1>', $$slug);
 
-                echo $slug . $$slug['timeago'] . "\n";
+                //echo $slug . $$slug['timeago'] . "\n";
 
 
                 $templateinput = array(
@@ -384,7 +382,7 @@ if ( $_SERVER['argv'][1] == 'skiarea' )
                 }
         }
 
-}
+endif;
 
 
 
