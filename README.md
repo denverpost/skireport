@@ -9,12 +9,14 @@ Repo for the Denver Post's Ski Report. Lots of legacy code, 2007-era.
 `export DEPLOY=localhost`
 * Set DB_PASS to the database password
 `export DB_PASS=whatever`
+* Set DB_USER
+`export DB_USER=whatever`
 * Set API_TOKEN to On The Snow's API password
 `export API_TOKEN=whatever`
 
 ### How to's
 #### Run an update of all the snow reports:
-`./update.bash`
+`./update.bash update`
 
 #### Flush cache on the outputted flat files:
 `php output.php skiarea`
@@ -23,7 +25,7 @@ Repo for the Denver Post's Ski Report. Lots of legacy code, 2007-era.
 ## To Do's
 - [ ] Mobile-friendly
 - [ ] Use new API(s)
-- [ ] Add deaths to ski slope data
+- [X] Add deaths to ski slope data
 
 ## Related
 - On The Snow API: http://clientservice.onthesnow.com/docs/index.html

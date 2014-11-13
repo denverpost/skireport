@@ -141,14 +141,6 @@ if ( $_SERVER['argv'][1] == 'skiarea' ):
                                 unset($templateinput);
                                 $templateinput = array(
                                         'templatename'     => 'row.resort.html',
-                                        'key'     => '<a href="http://www.denverpost.com/ci_22820133/colorado-skiers-die-groomed-blue-runs-after-hitting">Slope Deaths, 2007-2012</a>',
-                                        'value'     => $row['deaths_2007_2012'] 
-                                );
-                                $datatmp .=  template($templateinput);
-
-                                unset($templateinput);
-                                $templateinput = array(
-                                        'templatename'     => 'row.resort.html',
                                         'key'     => 'Acres Open',
                                         'value'     => $row['acresopen'] . ' of ' . $row['terrain_acres']
                                 );
@@ -167,6 +159,14 @@ if ( $_SERVER['argv'][1] == 'skiarea' ):
                                         'templatename'     => 'row.resort.html',
                                         'key'     => 'Runs',
                                         'value'     => $row['numberofruns'] . ' of ' . $row['trails']
+                                );
+                                $datatmp .=  template($templateinput);
+
+                                unset($templateinput);
+                                $templateinput = array(
+                                        'templatename'     => 'row.resort.html',
+                                        'key'     => '<a href="http://www.denverpost.com/ci_22820133/colorado-skiers-die-groomed-blue-runs-after-hitting">Slope Deaths, 2007-2012</a>',
+                                        'value'     => $row['deaths_2007_2012'] 
                                 );
                                 $datatmp .=  template($templateinput);
 

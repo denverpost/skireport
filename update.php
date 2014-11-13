@@ -57,7 +57,6 @@ $sql_report = "
 // KILL FIELD LIST:
 // report.cc_facilities
 foreach ( $ids as $id ):
-    echo $id;
     if ( trim($id) == '' ) continue;
 
     $ASSOC_ARRAY = TRUE;
