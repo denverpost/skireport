@@ -24,7 +24,7 @@ unset($input);
 // Hacky, for now
 if ( isset($_SERVER['argv'][2]) && $_SERVER['argv'][2] == 'override' ) $input['ids']['skiarea'] = array(507);
 
-if ( $_GET['write'] == 'skiarea' || $_SERVER['argv'][1] == 'skiarea' )
+if ( $_SERVER['argv'][1] == 'skiarea' )
 {
 
         //Loop through each skiarea
@@ -45,7 +45,7 @@ if ( $_GET['write'] == 'skiarea' || $_SERVER['argv'][1] == 'skiarea' )
                         $$row['slug']['timeago'] = '';
 
 
-                        if ( $$row['slug'] == '' )
+                        if ( $$row['slug']['markup'] == '' )
                         {
                                 // This output goes to http://extras.denverpost.com/skireport, and to the RSS feeds
                                 //<h5>' . $row['timeago'] . '</h5>
@@ -413,7 +413,7 @@ unset($page);
 
 // POWDER is handled differently
 /*
-if ( $_GET['write'] == 'powder' || $_SERVER['argv'][1] == 'powder'  )
+if ( $_SERVER['argv'][1] == 'powder'  )
 {
         //Get the data
         $result = $db->query($input['powder']['sql']);
@@ -450,7 +450,7 @@ if ( $_GET['write'] == 'powder' || $_SERVER['argv'][1] == 'powder'  )
 */
 
 // WEBCAMS are handled differently: They're static so we're writing them to a file that gets included
-if ( $_GET['write'] == 'webcams' || $_SERVER['argv'][1] == 'webcams'  )
+if ( $_SERVER['argv'][1] == 'webcams'  )
 {
         //Get the data
         $result = $db->query($input['webcams']['sql']);
@@ -494,7 +494,7 @@ if ( $_GET['write'] == 'webcams' || $_SERVER['argv'][1] == 'webcams'  )
 
 
 // LINKS Links are handled differently: They're static so we're writing them to a file that gets included
-if ( $_GET['write'] == 'links' || $_SERVER['argv'][1] == 'links'  )
+if ( $_SERVER['argv'][1] == 'links'  )
 {
         //Get the data
         $result = $db->query($input['links']['sql']);
