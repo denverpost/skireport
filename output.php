@@ -17,6 +17,10 @@ die();
 require("output_functions.php");
 require("output_constants.php");
 
+$db = new db($input['db'], $input);
+$db->connect();
+unset($input);
+
 // Hacky, for now
 if ( isset($_SERVER['argv'][2]) && $_SERVER['argv'][2] == 'override' ) $input['ids']['skiarea'] = array(507);
 
