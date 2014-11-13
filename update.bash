@@ -74,12 +74,8 @@ mysql --host=$7 --user=$4 --password=$DB_PASS $6 < sql
 #mysql --host=$7 --user=$4 --password=$DB_PASS $6 < sql_backup
 
 #Clean up the tables and write the changes to the report_delta db.
-#wget -O- http://$2/skireport/cleanup.php
-###php cleanup.php > cleanuplog
-
-#Do the update and check-up for colorado resorts
-#wget --delete-after http://$2/skireport/cleanup.php?colorado
+php cleanup.php > log-cleanup
 
 #New revised output (does it with file-writing, not wgetting-to-file)
 #wget -O- http://$2/skireport/output.php?write=skiarea
-#/usr/bin/php ./output.php skiarea
+php output.php skiarea
