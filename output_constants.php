@@ -47,9 +47,9 @@ require($libpath . "class.ftp.php");
 
 
 
-$date_now = date("D, j M Y H:i:s O");
-$db = new db($input['db'], $input);
-$db->connect();
+//$date_now = date("D, j M Y H:i:s O");
+//$db = new db($input['db'], $input);
+//$db->connect();
 
 if ( isset($_GET['noftp']) || $_SERVER['argv'][2] == 'noftp' || $ftp_action == FALSE ) $ftp_action = FALSE;
 else

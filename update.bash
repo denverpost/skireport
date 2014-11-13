@@ -54,9 +54,11 @@ do
     fi
 
     # If this report is different than the prior, we add it to the list of resorts to update.
-    # The 'q' flag on the diff command just lets us know if the files are different.
+    # The '--brief' flag on the diff command just lets us know if the files are different.
     # If they're the same, diff will return nothing.
-    if [ ! -z `diff /tmp/$RESORT-$REPORT-old /tmp/$RESORT-$REPORT -q` ]
+    DIFF=`diff /tmp/$RESORT-$REPORT-old /tmp/$RESORT-$REPORT --brief`
+    printf -v SPACELESS '%s' $DIFF
+    if [ ! -z $SPACELESS ]
     then
         echo $RESORT >> ids.txt
     fi

@@ -5,7 +5,7 @@
 // | Author: Joe Murphy <jmurphy@denverpost.com>                          |
 // +----------------------------------------------------------------------+
 
-//include('output_constants.php');
+include('output_constants.php');
 foreach ( $_SERVER['argv'] as $value ) $argv[$value] = TRUE;
 
 $last_update = array();
@@ -31,7 +31,7 @@ if ( $argv['update'] == TRUE )
        $ids = explode("\n", file_get_contents($dirpath . 'ids.txt'));
        //if ( count($ids) == 1 || ( count($ids) == 2 && $ids[0] == "11" ) ) die('Nothing to update');
 }
-if ( $argv[1] == 'colorado' || $argv[1] == 'backup' )
+if ( $argv['colorado'] == TRUE || $argv['backup'] == TRUE )
 {
 	$ids = explode("\n", file_get_contents('ids.colorado.txt'));
 }
@@ -57,13 +57,14 @@ $sql_report = "
 // KILL FIELD LIST:
 // report.cc_facilities
 foreach ( $ids as $id ):
+    echo $id;
     if ( trim($id) == '' ) continue;
 
     $ASSOC_ARRAY = TRUE;
     $record = json_decode(file_get_contents('/tmp/' . $id . '-snowreport'), $ASSOC_ARRAY);
     if ( $record ):
         $report = $record['report'];
-        // Null out the fields we haven't dealt with upgrading yet.
+        // Zero out the fields we haven't dealt with upgrading yet.
         $NumLiftsTotal = 0;
         $NumberOfTrails = 0;
         $KmOpen = 0;
