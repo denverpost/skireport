@@ -105,8 +105,8 @@ foreach ( $ids as $id ):
  '" . $report['resortReportedWeather']['tempBottom'] . "',
  0,
  '" . $report['resortReportedWeather']['baseWeatherText'] . "',
- STR_TO_DATE('$LastUpdate',
- '%m/%d/%y'),
+ STR_TO_DATE('" . $record['lastModified_str'] . "',
+ '%Y-%m-%dT%H:%i:%s'),
  '$Open' ),
 ";
             $sql_report .= str_replace("\n", "", $sql_report_tmp)  . "\n";

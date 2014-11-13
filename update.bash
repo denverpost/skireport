@@ -47,6 +47,7 @@ fi
 
 # We have an API token.
 # We use that to download json snow report data for each Colorado resort.
+> ids.txt
 for RESORT in `cat ids.colorado.txt`;
 do
     if [ -z "$TEST" ]
@@ -54,6 +55,7 @@ do
         mv /tmp/$RESORT-$REPORT /tmp/$RESORT-$REPORT-old
         URL="http://clientservice.onthesnow.com/externalservice/resort/$RESORT/$REPORT?token=$API_TOKEN&language=en&country=US"
         wget -O /tmp/$RESORT-$REPORT "$URL"
+    fi
 
     # If this report is different than the prior, we add it to the list of resorts to update.
     # The '--brief' flag on the diff command just lets us know if the files are different.
