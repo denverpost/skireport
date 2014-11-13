@@ -6,11 +6,11 @@ $input = array(
     'username' => 'root',
     'password' => $_ENV['DB_PASS']);
 
-if ( $_ENV['deploy'] == 'localhost' )
+if ( $_ENV['DEPLOY'] == 'localhost' )
 {
 	$dirpath = '/home/joe/work/skireport/';
-	$cachepath = '/home/joe/work/skireport/cache/';
-	$templatepath = '/home/joe/work/skireport/template/';
+	$cachepath = 'cache/';
+	$templatepath = 'template/';
 	$extraspath = '/DenverPost/skireport/';
     $libpath = '/var/www/lib/';
 	$ftp_action = FALSE;

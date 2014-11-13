@@ -45,7 +45,7 @@ $input = array(
         $headerone = '';
         $format = '';
 
-	global $cachepath, $templatepath;
+	global $cachepath;
 	extract($input);
 
     if ( $slug != '' ) $feedlink = '
@@ -114,7 +114,7 @@ $input = array(
 			break;
 	}
 
-    $template['content'] = file_get_contents($templatepath . $template['file']);
+    $template['content'] = file_get_contents('template/' . $template['file']);
     array_walk($template['search'], 'array_add_str');
     $return = str_replace($template['search'], $template['replace'], $template['content']);
 
