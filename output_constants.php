@@ -3,7 +3,7 @@ date_default_timezone_set('America/Denver');
 $input = array(
     'db' => 'db27949_ski',
     'server' => 'localhost',
-    'username' => 'root',
+    'username' => $_ENV['DB_USER'],
     'password' => $_ENV['DB_PASS']);
 
 if ( $_ENV['DEPLOY'] == 'localhost' )
@@ -40,7 +40,7 @@ require($libpath . "class.ftp.php");
 //$db = new db($input['db'], $input);
 //$db->connect();
 
-if ( isset($_GET['noftp']) || $_SERVER['argv'][2] == 'noftp' || $ftp_action == FALSE ) $ftp_action = FALSE;
+if ( $_SERVER['argv'][2] == 'noftp' || $ftp_action == FALSE ) $ftp_action = FALSE;
 else
 {
 	$ftp = new ftp($inputftp);
