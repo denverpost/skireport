@@ -59,13 +59,13 @@ if ( $_GET['write'] == 'skiarea' || $_SERVER['argv'][1] == 'skiarea' )
                                 $timestamps['unix'][$row['slug']] = $row['lastupdate_time_unix'];
                                 $timestamps['rss'][$row['slug']] = $row['lastupdate_time_str_rss'];
 
-                                $$row['slug'] = '
+                                $$row['slug']['markup'] = '
                                         <h3><a name="' . $row['slug'] . '" href="http://extras.denverpost.com/skireport/colorado/' . $row['slug'] . '.html">' . $row['name'] . ' Ski Resort Snow Report</a></h3>
                                         <h5>Last Updated: ' . $row['lastupdate_str'] . $row['lastupdate_time_str'] . '</h5>
                                         ' . ifequal($row['open'], 'Call Ahead', '<h5><a href="http://extras.denverpost.com/skireport/colorado/' . $row['slug'] . '.html#more_phone_' . $row['slug'] . '" title="Get ' . $row['name'] . '\'s phone number">Call ahead before going</a></h5>') . '
                                         ' . ifgreaterthan($row['opendate'], '<h5>Projected Open: ' . $row['opendate_str'] . ' ( in ' . $row['opendate'] . ' days )</h5>');
 
-                                $$row['slug'] .= '
+                                $$row['slug']['markup'] .= '
                                         <!-- <p class="twitter">On the Ski Report:<br><a name="' . $row['slug'] . '_twitter_snow" href="http://twitter.com/' . $row['twitter_snow'] . '">Get the ' . $row['name'] . ' Snow Report updates on twitter.</a> <br><em>&rsaquo; <a href="http://www.denverpost.com/twitter#snow_report">Full list of snow report twitterers.</a></em></p> -->';
 
                                 // Logic to handle display of update data
@@ -219,18 +219,18 @@ if ( $_GET['write'] == 'skiarea' || $_SERVER['argv'][1] == 'skiarea' )
 
                                 $webcams = webcams_get($row['slug']);
 
-                                $$row['slug'] .= '
+                                $$row['slug']['markup'] .= '
                                 ' . $snowlist . '
                                 ' . $slopelist . '
                                         <h4 class="more_link">&raquo; <a href="http://extras.denverpost.com/skireport/colorado/' . $row['slug'] . '.html#more_' . $row['slug'] . '">Get ' . $row['name'] . ' ski resort phone number, website, ticket info and directions</a></h4>';
 
                                 if ( $webcams != '' )
                                 {
-                                        $$row['slug'] .= '
+                                        $$row['slug']['markup'] .= '
                                         <h4 class="more_link">&raquo; <a href="http://extras.denverpost.com/skireport/colorado/' . $row['slug'] . '.html#webcams_' . $row['slug'] . '">See ' . $row['name'] . ' webcams here</a></h4>';
                                 }
 
-                                $$row['slug'] .= '
+                                $$row['slug']['markup'] .= '
                                         <div class="more">
                                                 <h4 id="more"><a name="more_' . $row['slug'] . '"></a>More about the ' . $row['name'] . ' Colorado Ski Resort</h4>
                                                 <dl>
@@ -248,7 +248,7 @@ if ( $_GET['write'] == 'skiarea' || $_SERVER['argv'][1] == 'skiarea' )
                                         <div class="webcams">' . $webcams . '</div>';
 
                                 //Add this data to the output-by-opened-or-not (this output goes to http://www.denverpost.com/skireport)
-                                $$openstr .= $$row['slug'];
+                                $$openstr .= $$row['slug']['markup'];
                         }
                         unset($row);
                 }
@@ -282,6 +282,7 @@ if ( $_GET['write'] == 'skiarea' || $_SERVER['argv'][1] == 'skiarea' )
         while ( $row = $db->fetch($result) )
         {
                 extract($row);
+                var_dump($row);
                 unset($templateinput);
 
                 /* Want to get the last-updated time for the template.
@@ -301,7 +302,8 @@ if ( $_GET['write'] == 'skiarea' || $_SERVER['argv'][1] == 'skiarea' )
                 // to the http://denverpost.com/skireport page, and doesn't
                 // make sense to keep around here.
                 $body = str_replace('<h3><a name="' . $slug . '" href="http://extras.denverpost.com/skireport/colorado/' . $slug . '.html">' . $name . ' Ski Resort Snow Report</a></h3>', '<h1><a name="' . $slug . '"></a>' . $name . ' Ski Resort Snow Report</h1>', $$slug);
-echo $slug . $$slug['timeago'] . "\n";
+
+                echo $slug . $$slug['timeago'] . "\n";
 
 
                 $templateinput = array(
