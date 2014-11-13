@@ -22,18 +22,11 @@ else
 	$ftp_action = 1;
 }
 
-// Newline handling for web-based requests vs. command-line requests
 $argv = array();
-if ( $_SERVER['argc'] > 1 )
-{
+if ( $_SERVER['argc'] > 1 ):
 	$newline = "\n";
-
 	foreach ( $_SERVER['argv'] as $value ) $argv[$value] = TRUE;
-}
-else
-{
-	$newline = "<br>";
-}
+endif;
 
 
 
@@ -138,7 +131,7 @@ $input['skiareaid']['sql'] = '
     LIMIT 1
 */
 //$input['ids']['skiarea'] = array(20, 24, 25, 36, 77, 92, 113, 120, 143, 181, 197, 220, 240, 329, 330, 365, 372, 406, 425, 445, 456, 482, 507, 511, 809, 810, 814, 815, 816, 817, 818, 819, 820, 821, 822, 823, 824, 825, 826, 828, 829, 830, 1393, 1435, 1673);
-$input['ids']['skiarea'] = array(20, 25, 36, 77, 113, 120, 143, 181, 197, 220, 240, 329, 330, 365, 372, 425, 445, 456, 482, 507, 511, 809, 810, 814, 815, 816, 817, 818, 819, 820, 821, 822, 823, 824, 825, 826, 828, 829, 830, 1393, 1435, 1673);
+$input['ids']['skiarea'] = array(20, 25, 36, 77, 113, 120, 143, 181, 197, 220, 240, 329, 330, 365, 372, 425, 445, 456, 482, 507, 511, 1435);
 
 
 $input['powder']['sql'] = 'SELECT
