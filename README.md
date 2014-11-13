@@ -21,6 +21,8 @@ Repo for the Denver Post's Ski Report. Lots of legacy code, 2007-era.
 #### Flush cache on the outputted flat files:
 `php output.php skiarea`
 
+## Front-end development
+Most of the markup you need is in template/. The markup is assembled in output.php and output_functions.php.
 
 ## To Do's
 - [ ] Mobile-friendly
