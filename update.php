@@ -28,7 +28,7 @@ function attr_get($xml, $name)
 
 if ( $argv['update'] == TRUE )
 {
-       $ids = explode("\n", file_get_contents($dirpath . 'ids.txt'));
+       $ids = explode("\n", file_get_contents('ids.txt'));
        //if ( count($ids) == 1 || ( count($ids) == 2 && $ids[0] == "11" ) ) die('Nothing to update');
 }
 if ( $argv['colorado'] == TRUE || $argv['backup'] == TRUE )

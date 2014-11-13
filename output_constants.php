@@ -8,7 +8,6 @@ $input = array(
 
 if ( $_ENV['DEPLOY'] == 'localhost' )
 {
-	$dirpath = '/home/joe/work/skireport/';
 	$cachepath = 'cache/';
 	$templatepath = 'template/';
 	$extraspath = '/DenverPost/skireport/';
@@ -18,7 +17,6 @@ if ( $_ENV['DEPLOY'] == 'localhost' )
 else
 {
     $inputftp['error_check'] = TRUE;
-	$dirpath = '/var/www/vhosts/denverpostplus.com/httpdocs/app/skireport/';
 	$cachepath = '/var/www/vhosts/denverpostplus.com/httpdocs/cache/';
 	$templatepath = '/var/www/vhosts/denverpostplus.com/httpdocs/app/skireport/template/';
 	$extraspath = '/DenverPost/skireport/';

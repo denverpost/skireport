@@ -282,7 +282,6 @@ if ( $_GET['write'] == 'skiarea' || $_SERVER['argv'][1] == 'skiarea' )
         while ( $row = $db->fetch($result) )
         {
                 extract($row);
-                var_dump($row);
                 unset($templateinput);
 
                 /* Want to get the last-updated time for the template.
