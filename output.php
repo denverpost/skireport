@@ -728,9 +728,26 @@ $page -> write($cachepath, 'powder.html', template($input));
 
 
 //INDEX Build a list for the resorts list
+
+unset($input);
+$input = array(
+    'body'      => file_get_contents('content/iphone-snow-app.html'),
+    'headerone'      => '<div class="fullpage"><h1>The (free) Colorado Snow Report iPhone App</h1></div>',
+    'title'     => 'The (free) Colorado Snow Report iPhone App',
+    'titleblurb'     => '',
+    'slug'     => '',
+    'templatename'     => 'page.html',
+    'filename'     => '',
+    'pubdate'     => '',
+);
+//INDEX-SCRAPES
+$fullpage = template($input);
+$page = new page($cachepath, 'iphone-snow-app.html', $fullpage);
+$page -> write();
+
+
 $output_mostsnow['resorts']['head'] = '<div style="width:600px!important;"><h4>Colorado Ski Resorts</h4>';
 $output_mostsnow['resorts']['body'] = '<dl>' . db_output('', 'resorts') . '</dl></div>';
-
 unset($input);
 $input = array(
     'body'      => $output_mostsnow['resorts']['head'] . $output_mostsnow['resorts']['body'],
@@ -797,6 +814,8 @@ if ( $ftp_action != FALSE )
         $slug = 'powder';
         $ftp -> file_put($slug, $file_directory_local, $file_format, $error_display, FTP_ASCII, '/DenverPost/skireport/colorado/');
         $slug = 'resorts';
+        $ftp -> file_put($slug, $file_directory_local, $file_format, $error_display, FTP_ASCII, '/DenverPost/skireport/colorado/');
+        $slug = 'iphone-snow-app';
         $ftp -> file_put($slug, $file_directory_local, $file_format, $error_display, FTP_ASCII, '/DenverPost/skireport/colorado/');
 
         $file_format = 'xml';
