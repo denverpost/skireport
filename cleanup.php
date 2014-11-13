@@ -67,11 +67,10 @@ foreach ( $ids as $value ):
 
 endforeach;
 
-//echo '<pre>' . $sql_delta;
-//echo '<pre>';
+//echo $sql_delta;
 //var_dump($sql_delete);
-//echo '<hr>';
 //var_dump($sql_delta);
+
 // Add the changed records
 if ( count($sql_delta) > 0 )
 {

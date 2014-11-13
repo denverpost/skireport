@@ -57,7 +57,7 @@ else
 	$ftp = new ftp($inputftp);
 	$ftp->connection_passive();
 }
-unset($input);
+//unset($input);
 
 
 
