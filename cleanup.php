@@ -5,35 +5,7 @@
 // | Author: Joe Murphy <jmurphy@denverpost.com>                          |
 // +----------------------------------------------------------------------+
 
-if ( $_SERVER['SERVER_NAME'] == 'owsley'  || $_SERVER['SERVER_ADMIN'] == 'webmaster@localhost' )
-{
-	$db_url = "localhost";
-	$db_userid = "root";
-	$db_pwd = $_ENV['DB_PASS'];
-	$db_dbname = "ski";
-	$input['db'] = 'ski';
-	$input['server'] = 'localhost';
-	$input['username'] = 'root';
-	$input['password'] = $_ENV['DB_PASS'];
-	$dirpath = '/var/www/skireport/';
-	$cachepath = '/var/www/skireport/cache/';
-	$outputpath = '/root/';
-}
-else
-{
-	$db_url = "localhost";
-	$db_userid = "db27949";
-	$db_pwd = $_ENV['DB_PASS'];
-	$db_dbname = "db27949_ski";
-	$input['db'] = 'db27949_ski';
-	$input['server'] = 'localhost';
-	$input['username'] = 'db27949';
-	$input['password'] = $_ENV['DB_PASS'];
-	$dirpath = '/var/www/vhosts/denverpostplus.com/httpdocs/app/skireport/';
-	$cachepath = '/var/www/vhosts/denverpostplus.com/httpdocs/cache/';
-	$outputpath = $dirpath;
-}
-require("/var/www/lib/class.db.php");
+include('output_constants.php');
 
 $db = new db($input['db'], $input);
 $db->connect();
