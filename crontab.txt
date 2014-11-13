@@ -1,5 +1,4 @@
-# The state of the crontab, as of 20091124. #
+# The state of the crontab, as of 201411.
 
-10 * * * * /bin/sh /var/www/vhosts/denverpostplus.com/httpdocs/app/skireport/update.sh update denverpostplus.com/app /var/www/vhosts/denverpostplus.com/httpdocs/app/skireport/ db27949 $DB_PASS db27949_ski localhost > /tmp/skilog
-20 * * * * /usr/bin/php /var/www/vhosts/denverpostplus.com/httpdocs/app/skireport/output.php skiarea > /tmp/skiphplog
-
+10 * * * * cd /var/www/vhosts/denverpostplus.com/httpdocs/app/skireport/; ./update.bash update denverpostplus.com/app /var/www/vhosts/denverpostplus.com/httpdocs/app/skireport/ db27949 $DB_PASS db27949_ski localhost > /tmp/log-cron-update
+20 * * * * cd /var/www/vhosts/denverpostplus.com/httpdocs/app/skireport/; php output.php skiarea > /tmp/log-output-php
