@@ -40,8 +40,6 @@ if ( $_SERVER['argv'][1] == 'skiarea' ):
                         elseif ( trim($row['open']) == 'Call Ahead' ) { $openstr = 'callahead'; echo $row['slug'] . $newline; }
                         else $openstr = 'closed';
 
-                        //$$row['slug']['timeago'] = '';
-
 
                         if ( $$row['slug'] == '' )
                         {
@@ -169,7 +167,7 @@ if ( $_SERVER['argv'][1] == 'skiarea' ):
                                         unset($templateinput);
                                         $templateinput = array(
                                                 'templatename'     => 'row.resort.html',
-                                                'key'     => '<!--Base --><a href="http://weathernow.denverpost.com/hw3.php?config=&amp;forecast=zandh&amp;pands=' . $row['zipcode'] . '">' . $row['name'] . ' Weather Forecast</a>',
+                                                'key'     => '<!--Base -->' . $row['name'] . ' Weather',
                                                 'value'     => $row['baseweather']
                                         );
                                         $datatmp .=  template($templateinput);
@@ -233,7 +231,6 @@ if ( $_SERVER['argv'][1] == 'skiarea' ):
                                                 <h4 id="more"><a name="more_' . $row['slug'] . '"></a>More about the ' . $row['name'] . ' Colorado Ski Resort</h4>
                                                 <dl>
                                                         ' . ifset($row['url'], '<dt><a name="more_website_' . $row['slug'] . '"></a>Web Site:</dt><dd><a href="%s">%s</a></dd>') . '
-                                                        ' . ifset($row['zipcode'], '<dt><a name="more_weather_' . $row['slug'] . '"></a>Weather:</dt><dd><a href="http://weathernow.denverpost.com/hw3.php?config=&amp;forecast=zandh&amp;pands=%s">' . $row['name'] . ' Weather Forecast and Conditions</a></dd>') . '
                                                         ' . ifset($row['phone'], '<dt><a name="more_phone_' . $row['slug'] . '"></a>Phone:</dt><dd>%s</dd>') . '
                                                         ' . ifset($row['tickets_notes'], '<!--<dt><a name="more_ticketinfo_' . $row['slug'] . '"></a>Ticket Info:</dt><dd style="clear:left;">%s</dd>-->') . '
                                                         ' . ifset($row['location_notes'], '<dt><a name="more_directions_' . $row['slug'] . '"></a>Getting There:</dt><dd style="clear:left;">%s ' . ifset($row['location_link'], '<br><strong><a href="%s">View a map to ' . $row['name'] . ' here</a></strong>') . '</dd>') . '
@@ -308,7 +305,7 @@ if ( $_SERVER['argv'][1] == 'skiarea' ):
                         'title'     => $name,
                         'titleblurb'     => '',	//Used for RSS
                         'slug'     => $slug,
-                        'timeago'     => $$slug['timeago'],
+                        //'timeago'     => $$slug['timeago'],
                         'templatename'     => 'page.html',
                         'filename'     => ''
                 );

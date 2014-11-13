@@ -64,10 +64,10 @@ do
     fi
 done;
 
-php update.php $1 > sql
+php update.php $1 > sql/update.sql
 
 # mysql -u db27949 --password=$DB_PASS db27949_ski < handsql
-mysql --host=$7 --user=$4 --password=$DB_PASS $6 < sql
+mysql --host=$7 --user=$4 --password=$DB_PASS $6 < sql/update.sql
 
 # Run the back-up routine
 #php update.php backup > sql_backup
