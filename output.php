@@ -810,13 +810,5 @@ if ( $ftp_action != FALSE )
         $ftp -> ftp_connection_close();
 }
 
-
-
-
-
-
-
-
-//<p><a href="http://www.onthesnow.com/ski/index.html?XE_AFF=denver%20post&XE_LNK=Credit-Line-Ski-Report" target="_blank">Snow</a> reports provided by Mountain News. The largest producer of <a href="http://www.onthesnow.com/ski/index.html?XE_AFF=S_XML&XE_LNK=Credit-Line-Ski-Report target="_blank">skiing</a> content for media, and publishers of the <a href="http://www.onthesnow.com/?XE_AFF=denver%20post&XE_LNK=Credit-Line-Ski-Report" target="_blank">OnTheSnow.com</a> Ski Guide.</p>
 $db->close();
 ?>
