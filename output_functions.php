@@ -1,4 +1,4 @@
-<?
+<?php
 function template($input, $resortdata = '')
 {
 /*
