@@ -1,5 +1,5 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE HTML>
+<html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <meta http-equiv="Content-Style-Type" content="text/css">
@@ -11,11 +11,20 @@
 <link rel="shortcut icon" href="http://extras.mnginteractive.com/live/media/favIcon/dpo/favicon.ico" type="image/x-icon">
 {{FEEDLINK}}
 <link type="text/css" rel="stylesheet" href="http://extras.mnginteractive.com/live/css/site36/redesign_default.css">
+<!--
 <link type="text/css" rel="stylesheet" href="http://extras.mnginteractive.com/live/css/MNGiDefaultStyles.css">
 <link type="text/css" rel="stylesheet" href="http://extras.mnginteractive.com/live/css/1024_-_2_Column_Multi-Region.css">
 <link type="text/css" rel="stylesheet" href="http://extras.denverpost.com/media/app/nav/dp/styles/nav.css">
+-->
 <link type="text/css" rel="stylesheet" href="http://extras.mnginteractive.com/live/css/site36/skireport.css">
 
+<style type="text/css">
+#wrapper
+{
+    margin: 10px auto;
+    width: 1040px;
+}
+</style>
 <!--[if IE 8]>
 <link rel="stylesheet" href="http://extras.denverpost.com/media/app/nav/dp/styles/ie8.css" type="text/css" />
 <![endif]--> 
@@ -59,8 +68,18 @@
 width:300px !important;
 }
 </style>
+    <script type="text/javascript" src="http://extras.denverpost.com/media/js/jquery-min.js"></script>
+    <script type="text/javascript" src="http://extras.denverpost.com/media/js/dputils-min.js?v=3"></script>
+    <script type="text/javascript" src="http://www.googletagservices.com/tag/js/gpt.js"></script>
+ 
+ 
+    <script type="text/javascript">
+        //Chartbeat startup
+        var _sf_startpt=(new Date()).getTime();
+        var _sf_async_config={};
+    </script>
 </head>
-<body class="bodyStyle">
+<body>
 <a name="top"></a>
 
 
@@ -116,43 +135,20 @@ height="1" width="1" alt="">
 <!-- End SiteCatalyst code version: H.17. -->
 </div>
 
-      <div id="page" class="contentStyle">
-
-         <div id="header">
-            <div class="adElement" id="adPosition0" style="margin:0!important;"><script type="text/javascript">yld_mgr.place_ad_here("adPos0");</script></div>
-         </div>
-         <div id="masthead_section" class="clearfix" style="width:995px;">
-            <div id="masthead_sectionlogo">
-               <a href="http://www.denverpost.com"><img src="http://extras.mnginteractive.com/live/media/site36/2006/0927/20060815_054356_logo_articles.gif" width="351" height="50" alt=""></a>
-            </div>
-
-            <div id="sectionname" style="width:995px;">
-               <a href="http://www.denverpost.com/skireport" title="Colorado Snow and Ski Report">Colorado Ski and Snow Report</a>
-            </div>
-            <div id="masthead_sectiondate">
-<script type="text/javascript">
-   var date = new Date();
-   document.write(date.toLocaleDateString());
-</script>
-            </div>
-         </div>
-         <table border="0" width="995" cellpadding="0" cellspacing="0">
-            <tr>
-
-               <td valign="top">
-                  <span id="redesign_topNav">
-                  <!-- This is the default template to use for the new horizontal navigation bar -->
-
-                    <div id="navcontainer">
-                        <script type="text/javascript" src="http://extras.denverpost.com/media/app/nav/dp/js/nav_main.js">
-                        </script>
-                    </div>
-                  <!-- Do *NOT* change the following script source, unless the file has moved to a new location. -->
-                  </span>
-
-               </td>
-            </tr>
-         </table>
+<div id="top_leaderboard_wrap">
+    <div id='dp_blog_leaderboard' style="margin:10px auto;width:728px;">
+        <script type='text/javascript'>
+            if ( document.getElementById('top_leaderboard_wrap').offsetWidth >= 728 ) {
+                googletag.defineSlot('/8013/denverpost.com', [[728,90]], 'dp_blog_leaderboard').setTargeting('blog', 'dp_rockies').addService(googletag.pubads());
+                googletag.pubads().enableSyncRendering();
+                googletag.enableServices();
+                googletag.display('dp_blog_leaderboard');
+            }
+        </script>
+    </div>
+</div>
+    <div id="dfmHeader"><!--Header Goes Here--></div>
+    <div id="wrapper">
 
 
 <script type="text/javascript" >
@@ -295,11 +291,32 @@ document.write(if_tag);
 <!-- END Insight XE for OTS-->
 	</div>
 
-<div id="footer" style="width:100%; text-align:center!important; margin:0 auto!important;clear:both;"><script type="text/javascript" src="http://extras.denverpost.com/vendor_templates/includes/footer.js"></script></div>
 
 </div>
 
+<div id="dfmFooter" style="border-top:1px solid #ddd;"><!--Footer Goes Here--></div>
+<script type="text/javascript" src="http://local.denverpost.com/common/dfm/dfm-nav/dfm-nav-core.js"></script>
+<script type="text/javascript"> dfmNav.initParams("mode|article", "site|denverpost", "pageTitle|Colorado Ski and Snow Report", "leaderboard|false", "thirdParty|true"); </script>
 
+    <script type="text/javascript">
+        //Chartbeat stuff
+        _sf_async_config.uid = 2671;
+        _sf_async_config.domain = 'denverpost.com';
+        _sf_async_config.sections = 'ski_report';
+        _sf_async_config.useCanonical = true;
+        (function(){
+            function loadChartbeat() {
+                window._sf_endpt=(new Date()).getTime();
+                var e = document.createElement('script');
+                e.setAttribute('language', 'javascript');
+                e.setAttribute('type', 'text/javascript');
+                e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+                document.body.appendChild(e);
+            }
+            var oldonload = window.onload;
+            window.onload = (typeof window.onload != 'function') ? loadChartbeat : function() { oldonload(); loadChartbeat(); };
+        })();
+    </script>
 <!-- <div style="float:right; width:300px;">{{STATIC.RECENTUPDATES}}</div> -->
 </body>
 </html>
