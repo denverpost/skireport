@@ -3,10 +3,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <meta http-equiv="Content-Style-Type" content="text/css">
-<script type="text/javascript" src="http://extras.denverpost.com/media/js/jquery-min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>{{TITLE}} Snow Report: The Denver Post</title>
-<meta http-equiv="description" content="The {{TIMEAGO}}{{TITLE}} Snow Report, published by The Denver Post. {{TITLE}} snow report, and ski resort information. Get your Colorado snow info from Colorado's top news source! Our snow reports are updated hourly.">
+<meta http-equiv="description" content="The {{TIMEAGO}}{{TITLE}} Snow Report, published by The Denver Post. {{TITLE}} snow report, and ski resort information. Snow reports updated hourly.">
+<script type="text/javascript" src="http://extras.denverpost.com/media/js/jquery-min.js"></script>
 <link rel="icon" href="http://extras.mnginteractive.com/live/media/favIcon/dpo/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="http://extras.mnginteractive.com/live/media/favIcon/dpo/favicon.ico" type="image/x-icon">
 {{FEEDLINK}}
@@ -20,6 +21,18 @@
     width: 1040px;
 }
 </style>
+<script>
+// Only load foundation.css on handheld devices
+if ( window.screen.availWidth < 769 || window.innerWidth < 769 )
+{
+    var link = document.createElement( "link" );
+    link.href = "http://cdn.foundation5.zurb.com/foundation.css";
+    link.type = "text/css";
+    link.rel = "stylesheet";
+    link.media = "screen,print";
+    document.getElementsByTagName("head")[0].appendChild(link);
+}
+</script>
 
 <link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Recent Snow"  href="http://feeds.denverpost.com/dp-skireport-recentsnow"   title="Denver Post: Ski Report: Recent Snow" text="Denver Post: Ski Report: Recent Snow">
 <link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Deepest Snow"  href="http://feeds.denverpost.com/dp-skireport-deepestsnow"   title="Denver Post: Ski Report: Deepest Snow" text="Denver Post: Ski Report: Deepest Snow">
@@ -117,8 +130,7 @@ var s_code=s.t();if(s_code)document.write(s_code)//--></script>
 if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
 </script>
 <noscript>
-<img src="http://denverpost.112.2O7.net/b/ss/denverpost/1/H.17--NS/0"
-height="1" width="1" alt="">
+<img src="http://denverpost.112.2O7.net/b/ss/denverpost/1/H.17--NS/0" height="1" width="1" alt="">
 </noscript>
 <!--/DO NOT REMOVE/-->
 <!-- End SiteCatalyst code version: H.17. -->
