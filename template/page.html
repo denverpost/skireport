@@ -19,6 +19,20 @@
     margin: 10px auto;
     width: 1040px;
 }
+/* Foundation overrides */
+@media only screen and (max-width: 768px) {
+    /* Kill the nav */
+    #dfmHeader div.foot, #dfmHeader div.sub-navigation, #dfmHeader #dfmMasthead #dfmPageTitle, #dfmHeader #dfmMasthead #dfmSearch, #dfmHeader #dfmMasthead #weatherBoxReal, #dfmHeader #dfmLeaderboardAd { display:none; }
+    #dfmHeader #dfmMasthead h3 { margin-left:.5em; }
+    #dfmHeader div.page-head div.body { background:none; border:none; }
+    #dfmHeader div.page-head div.body div.margin { width:100%; }
+    #wrapper { width:100%; overflow:hidden; }
+
+    /* Adjust the layout */
+    .row .maincol, #wrapper .row .sidebarcol { float: none!important; }
+    body h3 { font-size: 1em; }
+    body h1, body h2, body h3, body h4, body h5, body h6 { line-height: 1; }
+}
 </style>
 <script>
 // Only load foundation.css on handheld devices
@@ -168,8 +182,10 @@ document.location.href = x
 			&rsaquo; <a href="http://www.denverpost.com/skireport" title="Colorado Snow Report">Colorado Snow Report</a></div>
 
 
-<div class="maincol" style="float:left; width:650px;">{{HEADERONE}}{{BODY}}</div>
-<div class="sidebarcol" style="float:right; width:300px; margin-right:15px;">
+<div class="row">
+    <div class="maincol small-12 large-9 columns" style="float:left; width:650px;">{{HEADERONE}}{{BODY}}</div>
+    <div class="sidebarcol small-12 large-3 columns" style="float:right; width:300px; margin-right:15px;">
+
 <div id="skiquicklinks" style="margin-left:0;">
 <p><strong>Quick Links</strong>:
 
@@ -250,7 +266,8 @@ document.location.href = x
                 </script>
             </div>
             <!-- End DFP Premium ad uniqueId: dfp-21 -->
-</div>
+    </div> <!-- Close sidebar -->
+</div> <!-- Close row -->
 
 
 
