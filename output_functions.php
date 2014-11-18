@@ -238,7 +238,7 @@ function recentupdate_output()
 	';
 						break;
 					case 'conditions':
-						$return .= '<dt>Conditions:</dt><dd style="clear:left;">Was ' . $value_change . ', now is ' . $value['new'][$key_change] . '</dd>
+						$return .= '<dt>Conditions (base, top):</dt><dd style="clear:left;">Was ' . $value_change . ', now is ' . $value['new'][$key_change] . '</dd>
 	';
 						break;
 					case 'numliftsopen':
