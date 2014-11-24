@@ -167,7 +167,7 @@ if ( $_SERVER['argv'][1] == 'skiarea' ):
                                 );
                                 $datatmp .=  template($templateinput);
 
-                                if ( isset($row['baseweather']) )
+                                if ( isset($row['baseweather']) && trim($row['baseweather']) != '' )
                                 {
                                         unset($templateinput);
                                         $templateinput = array(
