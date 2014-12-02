@@ -25,9 +25,10 @@ Repo for the Denver Post's Ski Report. Lots of legacy code, 2007-era.
 Most of the markup you need is in template/. The markup is assembled in output.php and output_functions.php.
 
 ## To Do's
-- [ ] Make ski report responsive
-- [ ] Use new API(s)
-- [ ] Add new ad tags
+[Now maintained on the issues page](issues)
+- [X] Make ski report responsive
+- [X] Use new API
+- [X] Add new ad tags
 - [X] Add deaths to ski slope data
 
 ## Related
