@@ -404,7 +404,6 @@ SELECT
 	WHERE
 		r.skiarea_id = s.skiarea_id
         AND s.skiarea_id NOT IN (24,92,406)
-		AND r.open = "Open"
 		AND r.lastupdate >= DATE_SUB(CURDATE(), INTERVAL 0 DAY)
 		AND s.state_id = 8
 	ORDER BY r.basedepth_in + r.topdepth_in DESC';
