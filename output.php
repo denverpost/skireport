@@ -650,7 +650,6 @@ $input = array(
     'pubdate'     => '',
 );
 //INDEX-SCRAPES
-var_dump($output_mostsnow);
 $fullpage = template($input);
 $page = new page($cachepath, 'ski_deepestsnow.html', $fullpage);
 $page -> write();
