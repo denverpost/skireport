@@ -506,7 +506,7 @@ if ( $_SERVER['argv'][1] == 'webcams'  )
         );
         $output_webcams_final = template($input);
         //INDEX-SCRAPE
-        $page = new page($cachepath, 'webcams.html', $output_webcams_final);
+        $page = new page($cachepath, 'resort-webcams.html', $output_webcams_final);
         $page->write();
 }
 
