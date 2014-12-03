@@ -498,7 +498,7 @@ if ( $_SERVER['argv'][1] == 'webcams'  )
             'body'      => '<div class="skireport fullpage webcams">' . $all_webcams . '</div>',
             'title'     => 'Colorado Ski Webcams',
             'titleblurb'     => '',
-            'headerone'      => '<div class="fullpage"><h1>Colorado Ski Resort Webcams</h1></div>',
+            'headerone'      => '<div class="fullpage"><h1>Colorado Ski Resort Webcams</h1><p>See real-time images of what\'s happening on Colorado\'s slopes with our webcam page.</p></div>',
             'slug'     => 'webcams',
             'templatename'     => 'page.html',
             'filename'     => '',
