@@ -494,6 +494,8 @@ if ( $_SERVER['argv'][1] == 'webcams'  )
         }
 
         unset($input);
+        $all_webcams = str_replace('h4', 'h3', $all_webcams);
+        $all_webcams = str_replace('h5', 'h4', $all_webcams);
         $input = array(
             'body'      => '<div class="skireport fullpage webcams">' . $all_webcams . '</div>',
             'title'     => 'Colorado Ski Webcams',
@@ -840,6 +842,8 @@ if ( $ftp_action != FALSE )
         $slug = 'recentsnow';
         $ftp -> file_put($slug, $file_directory_local, $file_format, $error_display, FTP_ASCII, '/DenverPost/skireport/colorado/');
         $slug = 'acresopen';
+        $ftp -> file_put($slug, $file_directory_local, $file_format, $error_display, FTP_ASCII, '/DenverPost/skireport/colorado/');
+        $slug = 'resort-webcams';
         $ftp -> file_put($slug, $file_directory_local, $file_format, $error_display, FTP_ASCII, '/DenverPost/skireport/colorado/');
 
         $ftp -> ftp_connection_close();
