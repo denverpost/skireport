@@ -454,6 +454,7 @@ if ( $_SERVER['argv'][1] == 'webcams'  )
 {
         //Get the data
         $result = $db->query($input['webcams']['sql']);
+        $all_webcams = '';
 
         while ( $row = $db->fetch($result) )
         {
@@ -473,7 +474,7 @@ if ( $_SERVER['argv'][1] == 'webcams'  )
                 }
                 $$slug .= '	<div class="webcam_item"><h5>' . $title . ' WebCam</h5><img src="' . $url . '" width="' . $width . '" height="' . $height . '" alt="' . $title . '" />' . $description . '</div>
         ';
-                echo $slug;
+                echo $slug . "\n";
         }
 
         //Add the wrapper for each set, write it to a file
@@ -484,12 +485,29 @@ if ( $_SERVER['argv'][1] == 'webcams'  )
 
                 //$$slug = '<ul class="links">' . $$slug . '</ul>';
                 // Write the title
-                $$slug = '<h4><a name="webcams_' . $slug . '"></a>WebCams at ' . $name . '</h4>' . $$slug;
-                //Write it
+                $$slug = '<h4><a name="webcams_' . $slug . '"></a>' . $name . ' Webcams</h4>' . $$slug;
+                $all_webcams .= $$slug;
+                // Write it
                 $page = new page($cachepath, 'ski_webcams_' . $slug . '.html', $$slug);
                 $page -> write();
                 unset($page);
         }
+
+        unset($input);
+        $input = array(
+            'body'      => '<div class="skireport fullpage webcams">' . $all_webcams . '</div>',
+            'title'     => 'Colorado Ski Webcams',
+            'titleblurb'     => '',
+            'headerone'      => '<div class="fullpage"><h1>Colorado Ski Resort Webcams</h1></div>',
+            'slug'     => 'webcams',
+            'templatename'     => 'page.html',
+            'filename'     => '',
+            'pubdate'     => '',
+        );
+        $output_webcams_final = template($input);
+        //INDEX-SCRAPE
+        $page = new page($cachepath, 'webcams.html', $output_webcams_final);
+        $page->write();
 }
 
 
@@ -519,6 +537,7 @@ if ( $_SERVER['argv'][1] == 'links'  )
                 $page -> write();
                 unset($page);
         }
+        $page -> write();
 }
 
 
