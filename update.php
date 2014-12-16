@@ -31,7 +31,7 @@ if ( $argv['update'] == TRUE )
        $ids = explode("\n", file_get_contents('ids.txt'));
        //if ( count($ids) == 1 || ( count($ids) == 2 && $ids[0] == "11" ) ) die('Nothing to update');
 }
-if ( $argv['colorado'] == TRUE || $argv['backup'] == TRUE )
+if ( $argv['updatefilewrite'] == TRUE || $argv['colorado'] == TRUE || $argv['backup'] == TRUE )
 {
 	$ids = explode("\n", file_get_contents('ids.colorado.txt'));
 }
@@ -129,7 +129,7 @@ endforeach;
 if ( $argv['links'] == TRUE ) echo substr($sql_skiarea_links, 0, -1) . ";\n";
 if ( $argv['ski'] == TRUE ) echo substr($sql_skiarea, 0, -1) . ";\n";
 if ( $argv['skiarea_update'] == TRUE ) echo $sql_skiarea_update;
-if ( $argv['report'] == TRUE || $argv['update'] == TRUE ) echo substr($sql_report, 0, -2) . ";\n";
+if ( $argv['colorado'] == TRUE || $argv['updatefilewrite'] == TRUE || $argv['report'] == TRUE || $argv['update'] == TRUE ) echo substr($sql_report, 0, -2) . ";\n";
 
 /*
 // Data cleanup
