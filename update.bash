@@ -10,7 +10,7 @@
 # ./update.bash updatefilewrite denverpostplus.com/app
 # ./update.bash updatefilewrite localhost
 # cd /var/www/vhosts/denverpostplus.com/httpdocs/app/skireport/; ./update.bash update 
-
+source ../../../source.bash
 TEST=''
 FLUSH=''
 REPORT='snowreport'
