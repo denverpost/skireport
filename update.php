@@ -91,7 +91,7 @@ foreach ( $ids as $id ):
  " . $report['liftsReport']['perLiftsOpen'] . ",
  " . $report['terrainReport']['trailsOpen'] . ",
  " . $report['terrainReport']['acresOpen'] . ",
- " . $report['terrainReport']['numKmOpen'] . ",
+ '" . $report['terrainReport']['numKmOpen'] . "',
  '" . $EventNotices . "',
  '" . $Facilities . "',
  " . $NumberOfTrails . ",
