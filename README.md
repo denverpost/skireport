@@ -14,6 +14,8 @@ Repo for the Denver Post's Ski Report. Lots of legacy code, 2007-era.
 * Set API_TOKEN to On The Snow's API password
 `export API_TOKEN=whatever`
 
+Note: your php.ini must allow environment variables, i.e. `variables_order = "EGPCS"`
+
 ### How to's
 #### Run an update of all the snow reports:
 `./update.bash update`
