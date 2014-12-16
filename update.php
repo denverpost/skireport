@@ -74,7 +74,7 @@ foreach ( $ids as $id ):
         $Hits = 0;
         $Pipes = 0;
         
-        if ( ( $argv['update'] == TRUE ) || $argv['report'] == TRUE )
+        if ( $argv['update'] == TRUE || $argv['report'] == TRUE || $argv['updatefilewrite'] == TRUE || $argv['colorado'] == TRUE )
         {
             if ( $report['terrainReport']['acresOpen'] == '' ) $report['terrainReport']['acresOpen'] = 0;
             // We lay out these vars to make it easier for us to edit.
