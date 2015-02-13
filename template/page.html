@@ -31,11 +31,11 @@
 
     /* Adjust the layout */
     .adElement { width: 100%!important; }
-    .row .maincol, #wrapper .row .sidebarcol { float: none!important; }
+    .row .maincol, #wrapper .row .sidebarcol { float: none!important; width: 100%!important; }
     body h3 { font-size: 1em; }
     body h1, body h2, body h3, body h4, body h5, body h6 { line-height: 1; }
     body h1 { 
-        width: 50%!important; 
+        width: 100%!important; 
         font-size: 2em!important;
     }
 
@@ -43,6 +43,7 @@
     div.body { height: 30px; }
     body dl dt { margin-bottom: 0.75rem; }
     #skiquicklinks { display: none; }
+    .maincol { clear: both; }
 }
 </style>
 <script>
@@ -198,7 +199,7 @@ document.location.href = x
     <div class="sidebarcol small-12 large-3 columns" style="float:right; width:300px; margin-right:15px;">
 
 <div id="skiquicklinks" style="margin-left:0;">
-<p><strong>Quick Links</strong>:
+<p><strong>Quick Links</strong>:</p>
 
 <form name="form1">
 <select name="jumpmenu" onChange="jumpto(document.form1.jumpmenu.options[document.form1.jumpmenu.options.selectedIndex].value)">
@@ -226,8 +227,9 @@ document.location.href = x
 <option value="http://extras.denverpost.com/skireport/colorado/winterpark.html">Winter Park</option>
 <option value="http://extras.denverpost.com/skireport/colorado/wolfcreek.html">Wolf Creek</option>
 </select>
-</form></p>
+</form>
 </div>
+
     <h3>&rsaquo; <a href="resort-webcams.html">Colorado Ski Resort Webcams</a></h3>
     <h3>&rsaquo; <a href="iphone-snow-app.html">Colorado Snow Report iPhone App</a></h3>
     <h3>&rsaquo; <a href="powder.html">The Colorado Daily Powder Report</a></h3>
