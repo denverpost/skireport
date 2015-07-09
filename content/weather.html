@@ -1,0 +1,454 @@
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Colorado Ski Resort Weather: The Denver Post</title>
+<meta http-equiv="description" content="Weather forecasts for Colorado's ski resorts and slopes.">
+<link rel="icon" href="http://extras.mnginteractive.com/live/media/favIcon/dpo/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="http://extras.mnginteractive.com/live/media/favIcon/dpo/favicon.ico" type="image/x-icon">
+
+<link type="text/css" rel="stylesheet" href="http://extras.mnginteractive.com/live/css/site36/redesign_default.css">
+<link type="text/css" rel="stylesheet" href="http://extras.mnginteractive.com/live/css/site36/skireport.css">
+
+<style type="text/css">
+#wrapper
+{
+    margin: 10px auto;
+    width: 1040px;
+}
+/* Foundation overrides */
+@media only screen and (max-width: 768px) {
+    /* Kill the nav */
+    #dfmHeader div.foot, #dfmHeader div.sub-navigation, #dfmHeader #dfmMasthead #dfmPageTitle, #dfmHeader #dfmMasthead #dfmSearch, #dfmHeader #dfmMasthead #weatherBoxReal, #dfmHeader #dfmLeaderboardAd { display:none; }
+    #dfmHeader #dfmMasthead h3 { margin-left:.5em; }
+    #dfmHeader div.page-head div.body { background:none; border:none; }
+    #dfmHeader div.page-head div.body div.margin { width:100%; }
+    #wrapper { width:100%; overflow:hidden; }
+    #top_leaderboard_wrap { display: none; }
+
+    /* Adjust the layout */
+    .adElement { width: 100%!important; }
+    .row .maincol, #wrapper .row .sidebarcol { float: none!important; width: 100%!important; }
+    body h3 { font-size: 1em; }
+    body h1, body h2, body h3, body h4, body h5, body h6 { line-height: 1; }
+    body h1 { 
+        width: 100%!important; 
+        font-size: 2em!important;
+    }
+
+    /* Tweaks to align rows and make things clickable */
+    div.body { height: 30px; }
+    body dl dt { margin-bottom: 0.75rem; }
+    #skiquicklinks { display: none; }
+    .maincol, .sidebarcol { clear: both; }
+}
+</style>
+<script>
+// Only load foundation.css on handheld devices
+if ( window.screen.availWidth < 769 || window.innerWidth < 769 )
+{
+    var link = document.createElement( "link" );
+    link.href = "http://cdn.foundation5.zurb.com/foundation.css";
+    link.type = "text/css";
+    link.rel = "stylesheet";
+    link.media = "screen,print";
+    document.getElementsByTagName("head")[0].appendChild(link);
+}
+</script>
+
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Recent Snow"  href="http://feeds.denverpost.com/dp-skireport-recentsnow"   title="Denver Post: Ski Report: Recent Snow" text="Denver Post: Ski Report: Recent Snow">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Deepest Snow"  href="http://feeds.denverpost.com/dp-skireport-deepestsnow"   title="Denver Post: Ski Report: Deepest Snow" text="Denver Post: Ski Report: Deepest Snow">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Acres Open"  href="http://feeds.denverpost.com/dp-skireport-acresopen"   title="Denver Post: Ski Report: Acres Open" text="Denver Post: Ski Report: Acres Open">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Skiing News"  href="http://feeds.denverpost.com/dp-outdoors-skiing"   title="Denver Post: Skiing News" text="Denver Post: Skiing News">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Arapahoe Basin Ski Area"  href="http://feeds.denverpost.com/dp-skireport-arapahoebasin"   title="Denver Post: Ski Report: Arapahoe Basin Ski Area" text="Denver Post: Ski Report: Arapahoe Basin Ski Area">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Aspen Mountain"  href="http://feeds.denverpost.com/dp-skireport-aspenmountain"   title="Denver Post: Ski Report: Aspen Mountain" text="Denver Post: Ski Report: Aspen Mountain">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Beaver Creek"  href="http://feeds.denverpost.com/dp-skireport-beavercreek"   title="Denver Post: Ski Report: Beaver Creek" text="Denver Post: Ski Report: Beaver Creek">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Breckenridge"  href="http://feeds.denverpost.com/dp-skireport-breckenridge"   title="Denver Post: Ski Report: Breckenridge" text="Denver Post: Ski Report: Breckenridge">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Buttermilk"  href="http://feeds.denverpost.com/dp-skireport-buttermilk"   title="Denver Post: Ski Report: Buttermilk" text="Denver Post: Ski Report: Buttermilk">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Copper Mountain Resort"  href="http://feeds.denverpost.com/dp-skireport-coppermountain"   title="Denver Post: Ski Report: Copper Mountain Resort" text="Denver Post: Ski Report: Copper Mountain Resort">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Crested Butte Mountain"  href="http://feeds.denverpost.com/dp-skireport-crestedbutte"   title="Denver Post: Ski Report: Crested Butte Mountain" text="Denver Post: Ski Report: Crested Butte Mountain">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Durango Mountain Resort"  href="http://feeds.denverpost.com/dp-skireport-durango"   title="Denver Post: Ski Report: Durango Mountain Resort" text="Denver Post: Ski Report: Durango Mountain Resort">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Eldora Mountain Resort"  href="http://feeds.denverpost.com/dp-skireport-eldora"   title="Denver Post: Ski Report: Eldora Mountain Resort" text="Denver Post: Ski Report: Eldora Mountain Resort">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Howelsen Hill"  href="http://feeds.denverpost.com/dp-skireport-howelsenhill"   title="Denver Post: Ski Report: Howelsen Hill" text="Denver Post: Ski Report: Howelsen Hill">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Keystone"  href="http://feeds.denverpost.com/dp-skireport-keystone"   title="Denver Post: Ski Report: Keystone" text="Denver Post: Ski Report: Keystone">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Loveland"  href="http://feeds.denverpost.com/dp-skireport-loveland"   title="Denver Post: Ski Report: Loveland" text="Denver Post: Ski Report: Loveland">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Monarch Mountain"  href="http://feeds.denverpost.com/dp-skireport-monarch"   title="Denver Post: Ski Report: Monarch Mountain" text="Denver Post: Ski Report: Monarch Mountain">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Powderhorn"  href="http://feeds.denverpost.com/dp-skireport-powderhorn"   title="Denver Post: Ski Report: Powderhorn" text="Denver Post: Ski Report: Powderhorn">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Silverton Mountain"  href="http://feeds.denverpost.com/dp-skireport-silverton"   title="Denver Post: Ski Report: Silverton Mountain" text="Denver Post: Ski Report: Silverton Mountain">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Ski Cooper"  href="http://feeds.denverpost.com/dp-skireport-skicooper"   title="Denver Post: Ski Report: Ski Cooper" text="Denver Post: Ski Report: Ski Cooper">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Skyline Guest Ranch"  href="http://feeds.denverpost.com/dp-skireport-skylineguestranch"   title="Denver Post: Ski Report: Skyline Guest Ranch" text="Denver Post: Ski Report: Skyline Guest Ranch">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Snowmass"  href="http://feeds.denverpost.com/dp-skireport-snowmass"   title="Denver Post: Ski Report: Snowmass" text="Denver Post: Ski Report: Snowmass">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: SolVista Golf &amp; Ski Ranch (Silver Creek)"  href="http://feeds.denverpost.com/dp-skireport-solvista"   title="Denver Post: Ski Report: SolVista Golf &amp; Ski Ranch (Silver Creek)" text="Denver Post: Ski Report: SolVista Golf &amp; Ski Ranch (Silver Creek)">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Steamboat"  href="http://feeds.denverpost.com/dp-skireport-steamboat"   title="Denver Post: Ski Report: Steamboat" text="Denver Post: Ski Report: Steamboat">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Sunlight Mountain Resort"  href="http://feeds.denverpost.com/dp-skireport-sunlightmountain"   title="Denver Post: Ski Report: Sunlight Mountain Resort" text="Denver Post: Ski Report: Sunlight Mountain Resort">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Telluride"  href="http://feeds.denverpost.com/dp-skireport-telluride"   title="Denver Post: Ski Report: Telluride" text="Denver Post: Ski Report: Telluride">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Vail"  href="http://feeds.denverpost.com/dp-skireport-vail"   title="Denver Post: Ski Report: Vail" text="Denver Post: Ski Report: Vail">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Winter Park Resort"  href="http://feeds.denverpost.com/dp-skireport-winterpark"   title="Denver Post: Ski Report: Winter Park Resort" text="Denver Post: Ski Report: Winter Park Resort">
+<link rel="alternate" type="application/rss+xml"  description="Denver Post: Ski Report: Wolf Creek Ski Area"  href="http://feeds.denverpost.com/dp-skireport-wolfcreek"   title="Denver Post: Ski Report: Wolf Creek Ski Area" text="Denver Post: Ski Report: Wolf Creek Ski Area">
+<script type="text/javascript" src="http://extras.mnginteractive.com/live/js/otherinc/otherinc.js"></script>
+
+<style type="text/css">
+.fullpage div {
+width:300px !important;
+}
+</style>
+    <script type="text/javascript" src="http://extras.denverpost.com/media/js/jquery-min.js"></script>
+    <script type="text/javascript" src="http://extras.denverpost.com/media/js/dputils-min.js?v=3"></script>
+    <script type="text/javascript" src="http://www.googletagservices.com/tag/js/gpt.js"></script>
+ 
+ 
+    <script type="text/javascript">
+        //Chartbeat startup
+        var _sf_startpt=(new Date()).getTime();
+        var _sf_async_config={};
+    </script>
+</head>
+<body>
+<a name="top"></a>
+
+<!-- Google Tag Manager Data Layer -->
+  <script>
+    var is_mobile = function() {
+      var check = false;
+      (function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4)))check = true})(navigator.userAgent||navigator.vendor||window.opera);
+      if ( check == true ) return 'YES';
+      return 'NO';
+    };
+    analyticsEvent = function() {};
+    analyticsSocial = function() {};
+    analyticsVPV = function() {};
+    analyticsClearVPV = function() {};
+    analyticsForm = function() {};
+    window.dataLayer = window.dataLayer || [];
+    dataLayer.push({
+        'ga_ua':'UA-61435456-7',
+        'quantcast':'p-4ctCQwtnNBNs2',
+        'quantcast label': 'Denver',
+        'comscore':'6035443',
+        'errorType':'',
+        'Publisher Domain':'denverpost.com',
+        'Publisher Product':'denverpost.com',
+        'Dateline':'',
+        'Publish Hour of Day':'',
+        'Create Hour of Day':'',
+        'Update Hour of Day':'',
+        'Behind Paywall':'NO',
+        'Mobile Presentation':is_mobile(),
+        'kv':'skireport',
+        'Release Version':'',
+        'Digital Publisher':'',
+        'Platform':'custom',
+        'Section':'Ski Report',
+        'Taxonomy1':'Sports',
+        'Taxonomy2':'Skiing',
+        'Taxonomy3':'Colorado Ski Report',
+        'Taxonomy4':'Detail',
+        'Taxonomy5':'',
+        'Content Source':'',
+        'Canonical URL': 'http://extras.denverpost.com' + document.location.pathname,
+        'Slug':'',
+        'Content ID':'',
+        'Page Type':'data',
+        'Publisher State':'CO',
+        'Byline':'',
+        'Content Title':'Colorado Ski Resort Weather',
+        'URL':document.location.href,
+        'Page Title':document.title,
+        'User ID':''
+    });
+  </script>
+  <!-- End Google Tag Manager Data Layer -->
+<!-- GA Data Layer -->
+<!--
+<script type="text/javascript" src="http://local.medianewsgroup.com/common/dfm/ga-datalayer.js"></script>
+-->
+<!-- Google Tag Manager --><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TLFP4R" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><script>
+(function(w,d,s,l,i) {
+   w[l]=w[l]||[];
+   w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+   var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+   j.async=true;
+   j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})
+(window,document,'script','dataLayer','GTM-TLFP4R');
+</script><!-- End Google Tag Manager -->
+
+      <div id="page" class="contentStyle">
+
+         <div id="header">
+            <div class="adElement" id="adPosition0"><script type="text/javascript">yld_mgr.place_ad_here("adPos0");</script></div>
+		 </div>
+         <div id="masthead_section" class="clearfix" style="width:995px;">
+            <div id="masthead_sectionlogo">
+               <a href="http://www.denverpost.com"><img src="http://extras.mnginteractive.com/live/media/site36/2006/0927/20060815_054356_logo_articles.gif" width="351" height="50" border="0" alt=""></a>
+            </div>
+
+            <div id="sectionname" style="width:995px;">
+               <a href="http://www.denverpost.com/skireport" title="Colorado Snow and Ski Report">Colorado Snow / Ski Report</a>
+            </div>
+            <div id="masthead_sectiondate">
+<script type="text/javascript">
+   var date = new Date();
+   document.write(date.toLocaleDateString());
+</script>
+            </div>
+         </div>
+         <table border="0" width="995" cellpadding="0" cellspacing="0">
+            <tr>
+
+               <td valign="top">
+                  <span id="redesign_topNav">
+                  <!-- This is the default template to use for the new horizontal navigation bar -->
+
+                  <!-- Do *NOT* change the following script source, unless the file has moved to a new location. -->
+                  </span>
+                  <div id="navcontainer">
+                  </div>
+<script language="JavaScript" type="text/javascript" src="http://extras.denverpost.com/vendor_templates/includes/nav.js">
+
+</script>
+
+<script language="JavaScript" type="text/javascript">
+write_nav("outdoors");
+</script>
+
+               </td>
+            </tr>
+         </table>
+         <table border="0" width="995" cellpadding="0" cellspacing="0">
+            <tr>
+               <td valign="top">
+
+                  <div id="searchbar">
+
+<script language="JavaScript" type="text/javascript" src="http://extras.denverpost.com/vendor_templates/includes/searchbar.js">
+</script>
+                  </div>
+               </td>
+            </tr>
+         </table>
+         
+         <div id="sportsmenu" class="broncos clearfix">
+    <div style="width: 310px; margin: 0;">
+        <a href="http://www.denverpost.com/skireport?source=ski_nav"><img src="http://extras.mnginteractive.com/live/media/site36/2008/1025/20081025_081011_skiguidemenu.gif" alt="Colorado Ski Guide"></a>
+    </div>
+    <div style="margin: 3px 0 0 34px; width: 140px;">
+        <ul>
+            <li class="link"><a href="http://www.denverpost.com/skiing?source=ski_nav">Colorado Skiing News</a></li>
+			<li class="blog" style="margin-top: 5px;"><a href="http://guide.denverpost.com/lists/category/colorado-skiing-and-recreation/?source=ski_nav">Colorado Ski Guides</a></li>
+
+        </ul>
+    </div>
+    <div style="margin-top: 3px; width: 200px">
+            <ul>
+                <li class="slideshow"><a href="http://neighbors.denverpost.com/album_cat.php?cat_id=109&amp;source=ski_nav">Outdoor Extremes Reader Photos</a></li>
+                <li class="rss" style="margin-top: 5px;"><a href="http://www.denverpost.com/webfeeds?source=ski_nav#ski-report">Colorado Resort Web Feeds</a></li>
+            </ul>
+    </div>
+    <div style="margin-top: 3px; width: 190px;">
+            <ul>
+                <li class="link"><a href="weather.html?source=ski_nav">Colorado Resort Weather</a></li>
+				<li class="blog" style="margin-top: 5px;"><a href="http://blogs.denverpost.com/sports/category/outdoor-extremes/?source=ski_nav">Outdoor Extremes Colorado</a></li>
+            </ul>
+    </div>
+
+</div>
+<script type="text/javascript" >
+<!--
+
+function jumpto(x){
+
+if (document.form1.jumpmenu.value != "null") {
+document.location.href = x
+}
+}
+
+//-->
+</script>
+
+
+         <div id="breadcrumbs"><a href="http://www.denverpost.com">Home</a> &rsaquo; <a href="http://www.denverpost.com/skireport" title="Colorado Ski Report">Colorado Ski Report</a></div>
+
+<div id="skiquicklinks">
+<p><strong>Quick Links</strong>:
+
+<form name="form1">
+<select name="jumpmenu" onChange="jumpto(document.form1.jumpmenu.options[document.form1.jumpmenu.options.selectedIndex].value)">
+<option>Select a resort...</option>
+<option value="http://extras.denverpost.com/skireport/colorado/arapahoebasin.html">Arapahoe Basin</option>
+<option value="http://extras.denverpost.com/skireport/colorado/aspenhighlands.html">Aspen Highlands</option>
+<option value="http://extras.denverpost.com/skireport/colorado/aspenmountain.html">Aspen Mountain</option>
+<option value="http://extras.denverpost.com/skireport/colorado/beavercreek.html">Beaver Creek</option>
+<option value="http://extras.denverpost.com/skireport/colorado/breckenridge.html">Breckenridge</option>
+<option value="http://extras.denverpost.com/skireport/colorado/buttermilk.html">Buttermilk</option>
+<option value="http://extras.denverpost.com/skireport/colorado/coppermountain.html">Copper Mountain</option>
+<option value="http://extras.denverpost.com/skireport/colorado/crestedbutte.html">Crested Butte</option>
+<option value="http://extras.denverpost.com/skireport/colorado/durango.html">Durango</option>
+<option value="http://extras.denverpost.com/skireport/colorado/echo.html">Echo</option>
+<option value="http://extras.denverpost.com/skireport/colorado/eldora.html">Eldora</option>
+<option value="http://extras.denverpost.com/skireport/colorado/howelsenhill.html">Howelsen Hill</option>
+<option value="http://extras.denverpost.com/skireport/colorado/keystone.html">Keystone</option>
+<option value="http://extras.denverpost.com/skireport/colorado/loveland.html">Loveland</option>
+<option value="http://extras.denverpost.com/skireport/colorado/monarch.html">Monarch</option>
+<option value="http://extras.denverpost.com/skireport/colorado/powderhorn.html">Powderhorn</option>
+<option value="http://extras.denverpost.com/skireport/colorado/silverton.html">Silverton</option>
+<option value="http://extras.denverpost.com/skireport/colorado/skicooper.html">Ski Cooper</option>
+<option value="http://extras.denverpost.com/skireport/colorado/snowmass.html">Snowmass</option>
+<option value="http://extras.denverpost.com/skireport/colorado/solvista.html">SolVista</option>
+<option value="http://extras.denverpost.com/skireport/colorado/steamboat.html">Steamboat</option>
+<option value="http://extras.denverpost.com/skireport/colorado/sunlightmountain.html">Sunlight Mountain</option>
+<option value="http://extras.denverpost.com/skireport/colorado/telluride.html">Telluride</option>
+<option value="http://extras.denverpost.com/skireport/colorado/vail.html">Vail</option>
+<option value="http://extras.denverpost.com/skireport/colorado/winterpark.html">Winter Park</option>
+<option value="http://extras.denverpost.com/skireport/colorado/wolfcreek.html">Wolf Creek</option>
+</select>
+</form></p>
+</div>
+
+
+
+<div class="maincol" style="float:left; width:650px;">
+
+<div class="skireport fullpage">
+
+    <h1>Colorado Ski Resort Weather Forecasts</h1>
+    <p><strong>Is there snow coming to those mountains?</strong> These links below will take you to the weather forecast pages for Colorado mountain resort towns, which includes the 7-day forecasts. You can also <a href="http://www.denverpost.com/twitter#weather">get the weather forecast for many of these towns on twitter from our twitter weather accounts</a>.
+    <ul class="boxwhite">
+        <li><a href="http://www.denverpost.com/weather#vail">Vail Weather Forecast and Conditions</a></li>
+        <li><a href="http://www.denverpost.com/weather#dillon">Keystone / Dillon Weather Forecast and Conditions</a></li>
+        <li><a href="http://www.denverpost.com/weather#durango">Durango Weather Forecast and Conditions</a></li>
+        <li><a href="http://www.denverpost.com/weather#winter+park">Winter Park Weather Forecast and Conditions</a></li>
+        <li><a href="http://www.denverpost.com/weather#steamboat+springs">Steamboat Weather Forecast and Conditions</a></li>
+        <li><a href="http://www.denverpost.com/weather#telluride">Telluride Weather Forecast and Conditions</a></li>
+        <li><a href="http://www.denverpost.com/weather#breckenridge">Breckenridge Weather Forecast and Conditions</a></li>
+        <li><a href="http://www.denverpost.com/weather#aspen">Aspen Weather Forecast and Conditions</a></li>
+        <li><a href="http://www.denverpost.com/weather#salida">Monarch Weather Forecast and Conditions</a></li>
+        <li><a href="http://www.denverpost.com/weather#crested+butte">Crested Butte Weather Forecast and Conditions</a></li>
+        <li><a href="http://www.denverpost.com/weather#sliver+creek">Silver Creek Weather Forecast and Conditions</a></li>
+    </ul>
+    
+    <h3>Colorado Weather Forecasts</h3>
+    <p>If you're interested in weather in the non-ski resort towns and cities, here you go:</p>
+
+    <ul class="boxwhite">
+        <li><a href="http://www.denverpost.com/weather#aurora" class="sideLink">Aurora, CO Weather</a></li>
+        <li><a href="http://www.denverpost.com/weather#boulder" class="sideLink">Boulder, CO Weather</a></li>
+        <li><a href="http://www.denverpost.com/weather#colorado+springs" class="sideLink">Colorado Springs, CO Weather</a></li>
+        <li><a href="http://www.denverpost.com/weather#denver" class="sideLink">Denver, CO Weather</a></li>
+        <li><a href="http://www.denverpost.com/weather#fort+collins" class="sideLink">Fort Collins, CO Weather</a></li>
+        <li><a href="http://www.denverpost.com/weather#grand+junction" class="sideLink">Grand Junction, CO Weather</a></li>
+        <li><a href="http://www.denverpost.com/weather#greeley" class="sideLink">Greeley, CO Weather</a></li>
+        <li><a href="http://www.denverpost.com/weather#pueblo" class="sideLink">Pueblo, CO Weather</a></li>
+    </ul>
+</div>
+</div>
+
+<div class="sidebarcol" style="float:right; width:300px; margin-right:15px;">
+
+    <h3>&rsaquo; <a href="recentsnow.html">Colorado's Recent Snow Report</a></h3>
+    <h3>&rsaquo; <a href="deepestsnow.html">Colorado's Deepest Snow Report</a></h3>
+    <h3>&rsaquo; <a href="acresopen.html">Colorado's Resort Acres Open Report</a></h3>
+	<div class="adElement" id="adPosition9"><script type="text/javascript">yld_mgr.place_ad_here("adPos9");</script></div>
+<script src="http://widgets.twimg.com/j/2/widget.js" type="text/javascript"></script>
+<script type="text/javascript">
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 10,
+  interval: 6000,
+  width: 300,
+  height: 300,
+  theme: {
+    shell: {
+      background: '#003459',
+      color: '#ffffff'
+    },
+    tweets: {
+      background: '#ffffff',
+      color: '#000000',
+      links: '#0056c6'
+    }
+  },
+  features: {
+    scrollbar: true,
+    loop: false,
+    live: false,
+    hashtags: true,
+    timestamp: true,
+    avatars: false,
+    behavior: 'all'
+  }
+}).render().setUser('coloradosnow').start();
+</script>
+<div class="adElement" id="adPosition6"><script type="text/javascript">yld_mgr.place_ad_here("adPos6");</script></div>
+
+</div>
+
+
+
+
+<div class="adElement" style="width:990px; text-align:center; clear:both;">
+
+<p style="width:80%; margin:0 auto 10px auto;">
+	<a href="http://extras.denverpost.com/skireport/colorado/arapahoebasin.html" title="Arapahoe Basin Resort and Snow info">Arapahoe Basin</a> |
+<a href="http://extras.denverpost.com/skireport/colorado/aspenhighlands.html" title="Aspen Highlands Resort and Snow info">Aspen Highlands</a> |
+<a href="http://extras.denverpost.com/skireport/colorado/aspenmountain.html" title="Aspen Mountain Resort and Snow info">Aspen Mountain</a> |
+<a href="http://extras.denverpost.com/skireport/colorado/beavercreek.html" title="Beaver Creek Resort and Snow info">Beaver Creek</a> |
+<a href="http://extras.denverpost.com/skireport/colorado/breckenridge.html" title="Breckenridge Resort and Snow info">Breckenridge</a> |
+<a href="http://extras.denverpost.com/skireport/colorado/buttermilk.html" title="Buttermilk Resort and Snow info">Buttermilk</a> |
+<a href="http://extras.denverpost.com/skireport/colorado/coppermountain.html" title="Copper Mountain Resort and Snow info">Copper Mountain</a> |
+<a href="http://extras.denverpost.com/skireport/colorado/crestedbutte.html" title="Crested Butte Resort and Snow info">Crested Butte</a> |
+<a href="http://extras.denverpost.com/skireport/colorado/durango.html" title="Durango Resort and Snow info">Durango</a> |
+<a href="http://extras.denverpost.com/skireport/colorado/echo.html" title="Echo Resort and Snow info">Echo</a> |
+<a href="http://extras.denverpost.com/skireport/colorado/eldora.html" title="Eldora Resort and Snow info">Eldora</a> |
+<a href="http://extras.denverpost.com/skireport/colorado/howelsenhill.html" title="Howelsen Hill Resort and Snow info">Howelsen Hill</a> |
+<a href="http://extras.denverpost.com/skireport/colorado/keystone.html" title="Keystone Resort and Snow info">Keystone</a> |
+<a href="http://extras.denverpost.com/skireport/colorado/loveland.html" title="Loveland Resort and Snow info">Loveland</a> |
+<a href="http://extras.denverpost.com/skireport/colorado/monarch.html" title="Monarch Resort and Snow info">Monarch</a> |
+<a href="http://extras.denverpost.com/skireport/colorado/powderhorn.html" title="Powderhorn Resort and Snow info">Powderhorn</a> |
+<a href="http://extras.denverpost.com/skireport/colorado/silverton.html" title="Silverton Resort and Snow info">Silverton</a> |
+<a href="http://extras.denverpost.com/skireport/colorado/skicooper.html" title="Ski Cooper Resort and Snow info">Ski Cooper</a> |
+<a href="http://extras.denverpost.com/skireport/colorado/snowmass.html" title="Snowmass Resort and Snow info">Snowmass</a> |
+<a href="http://extras.denverpost.com/skireport/colorado/solvista.html" title="SolVista Resort and Snow info">SolVista</a> |
+<a href="http://extras.denverpost.com/skireport/colorado/steamboat.html" title="Steamboat Resort and Snow info">Steamboat</a> |
+<a href="http://extras.denverpost.com/skireport/colorado/sunlightmountain.html" title="Sunlight Mountain Resort and Snow info">Sunlight Mountain</a> |
+<a href="http://extras.denverpost.com/skireport/colorado/telluride.html" title="Telluride Resort and Snow info">Telluride</a> |
+<a href="http://extras.denverpost.com/skireport/colorado/vail.html" title="Vail Resort and Snow info">Vail</a> |
+<a href="http://extras.denverpost.com/skireport/colorado/winterpark.html" title="Winter Park Resort and Snow info">Winter Park</a> |
+<a href="http://extras.denverpost.com/skireport/colorado/wolfcreek.html" title="Wolf Creek Resort and Snow info">Wolf Creek</a>
+</p>
+
+</div>
+
+
+
+<div id="dfmFooter" style="border-top:1px solid #ddd;"><!--Footer Goes Here--></div>
+<script type="text/javascript" src="http://local.denverpost.com/common/dfm/dfm-nav/dfm-nav-core.js"></script>
+<script type="text/javascript"> dfmNav.initParams("mode|article", "site|denverpost", "pageTitle|Colorado Ski and Snow Report", "leaderboard|false", "thirdParty|true"); </script>
+
+    <script type="text/javascript">
+        //Chartbeat stuff
+        _sf_async_config.uid = 2671;
+        _sf_async_config.domain = 'denverpost.com';
+        _sf_async_config.sections = 'ski_report';
+        _sf_async_config.useCanonical = true;
+        (function(){
+            function loadChartbeat() {
+                window._sf_endpt=(new Date()).getTime();
+                var e = document.createElement('script');
+                e.setAttribute('language', 'javascript');
+                e.setAttribute('type', 'text/javascript');
+                e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+                document.body.appendChild(e);
+            }
+            var oldonload = window.onload;
+            window.onload = (typeof window.onload != 'function') ? loadChartbeat : function() { oldonload(); loadChartbeat(); };
+        })();
+    </script>
+<!-- <div style="float:right; width:300px;"></div> -->
+</body>
+</html>
