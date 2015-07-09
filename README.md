@@ -1,6 +1,5 @@
 # Ski Report
-
-Repo for the Denver Post's Ski Report. Lots of legacy code, 2007-era.
+The Denver Post's Ski Report. Lots of legacy code, 2007-era.
 
 
 ## Developing with the Ski Report
@@ -27,11 +26,7 @@ Note: your php.ini must allow environment variables, i.e. `variables_order = "EG
 Most of the markup you need is in template/. The markup is assembled in output.php and output_functions.php.
 
 ## To Do's
-[Now maintained on the issues page](issues)
-- [X] Make ski report responsive
-- [X] Use new API
-- [X] Add new ad tags
-- [X] Add deaths to ski slope data
+[Now maintained on the issues page](https://github.com/denverpost/skireport/issues)
 
 ## Related
 - On The Snow API: http://clientservice.onthesnow.com/docs/index.html
