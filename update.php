@@ -77,6 +77,11 @@ foreach ( $ids as $id ):
         if ( $argv['update'] == TRUE || $argv['report'] == TRUE || $argv['updatefilewrite'] == TRUE || $argv['colorado'] == TRUE )
         {
             if ( $report['terrainReport']['acresOpen'] == '' ) $report['terrainReport']['acresOpen'] = 0;
+            if ( $report['snowQuality']['onSlope']['lowerDepth'] == '' ) $report['snowQuality']['onSlope']['lowerDepth'] = "''";
+            if ( $report['snowQuality']['onSlope']['upperDepth'] == '' ) $report['snowQuality']['onSlope']['upperDepth'] = "''";
+            if ( $report['liftsReport']['liftsOpen'] == '' ) $report['liftsReport']['liftsOpen'] = "''";
+            if ( $report['liftsReport']['perLiftsOpen'] == '' ) $report['liftsReport']['perLiftsOpen'] = "''";
+
             // We lay out these vars to make it easier for us to edit.
             $sql_report_tmp = "
 ( $id,
